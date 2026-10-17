@@ -1,0 +1,427 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1818.6624078593254,
+            "y": 357.34397920657818
+          },
+          "nodeIndex": "dim_category",
+          "nodeLineageTag": "11c70b22-9dc6-4737-b057-a465ea2ec930",
+          "size": {
+            "height": 169.46994931329363,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 658.9980935069924,
+            "y": 1801.5031623682348
+          },
+          "nodeIndex": "dim_customers",
+          "nodeLineageTag": "d7942ad8-9c94-45c1-b597-56e69db2da3b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 996.34396334135613,
+            "y": 1872.600065981761
+          },
+          "nodeIndex": "dim_geolocation",
+          "nodeLineageTag": "a1fd4f9e-9a6c-4aca-93be-5366b8133f58",
+          "size": {
+            "height": 208.90755569857896,
+            "width": 278.53777849289463
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1424.193453015549,
+            "y": 301.39960188710813
+          },
+          "nodeIndex": "dim_products",
+          "nodeLineageTag": "f1fe62d7-a792-4351-a2bb-e98d00a8ea80",
+          "size": {
+            "height": 311.88975935925032,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1500.0750443672841,
+            "y": 872.77976262892946
+          },
+          "nodeIndex": "dim_sellers",
+          "nodeLineageTag": "bbac391a-637b-44cf-bd95-bf5caf39e383",
+          "size": {
+            "height": 318.5208911772628,
+            "width": 271.85711171896048
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 344.7417987173306,
+            "y": 760.09682873184033
+          },
+          "nodeIndex": "fct_feedback",
+          "nodeLineageTag": "8c13f66c-22b8-4dd2-acd7-1d43dd12b68f",
+          "size": {
+            "height": 457.32755891660486,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 1082.5855054548058,
+            "y": 757.6838032374352
+          },
+          "nodeIndex": "fct_items",
+          "nodeLineageTag": "21f223c2-cbe4-4dd8-ad3d-f099889743b6",
+          "size": {
+            "height": 451.85303968961944,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 723.23226147629259,
+            "y": 755.11272534342993
+          },
+          "nodeIndex": "fct_orders",
+          "nodeLineageTag": "1fe1a9d4-fa48-4a2b-8cd7-06ada5dcc9ad",
+          "size": {
+            "height": 447.18467063556523,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 996.0147877691262,
+            "y": 1427.9267480825758
+          },
+          "nodeIndex": "fct_payments",
+          "nodeLineageTag": "9601db96-c88b-4e8e-953a-3cac15cc85c4",
+          "size": {
+            "height": 309.11755730759188,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 718.90306510698144,
+            "y": 0
+          },
+          "nodeIndex": "dim_calendar",
+          "nodeLineageTag": "79941248-50d8-4c70-87fc-e7d4fbd7c5f0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 2656.6348017959567,
+            "y": 0
+          },
+          "nodeIndex": "*Miary",
+          "nodeLineageTag": "3bb74a10-d035-4777-b086-07e785e255fa",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1829.7310845550658,
+            "y": 0
+          },
+          "nodeIndex": "dim_measures",
+          "nodeLineageTag": "1e24a525-3860-4ae5-8c19-2c57e3c987f0",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2681.1854708617129,
+            "y": 785.58485710414811
+          },
+          "nodeIndex": "Wymiar do analizy",
+          "nodeLineageTag": "5fed2816-aabe-4c4b-9668-81c4ff2b1625",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 3027.3702579302417,
+            "y": 757.85446116236812
+          },
+          "nodeIndex": "JĘZYK",
+          "nodeLineageTag": "02744fd5-e8de-4398-83d9-c2d5ef1ba9d3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 2899.0260673420371,
+            "y": 320.65940627775814
+          },
+          "nodeIndex": "Parametr Logistyka",
+          "nodeLineageTag": "db387b94-c785-40a1-8f36-b193986c7606",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3168.8812489243305,
+            "y": 315.66596699844678
+          },
+          "nodeIndex": "Parametr Czas",
+          "nodeLineageTag": "f4a7c3ee-aae4-4673-983c-335c5919efda",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3209.0382236583009,
+            "y": 0
+          },
+          "nodeIndex": "Delivery Stages",
+          "nodeLineageTag": "c02f74f6-7a29-4631-b978-39562da9f7d6",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2926.282865456461,
+            "y": 0
+          },
+          "nodeIndex": "Grupa obliczania",
+          "nodeLineageTag": "30231244-18e6-4db9-9f61-f2a4323a64a5",
+          "size": {
+            "height": 145.47703747758979,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 496.098376461711,
+            "y": 1590.4180885262356
+          },
+          "nodeIndex": "dim_status",
+          "nodeLineageTag": "65d50e90-e17c-403b-9e68-b56cf3156ff8",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2544.4942210886211,
+            "y": 515.40353817090136
+          },
+          "nodeIndex": "Parametr Delivery performance",
+          "nodeLineageTag": "2728ede1-a97e-4e69-abbf-c728964188dd",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3333.6670877192964,
+            "y": 883.3885215968437
+          },
+          "nodeIndex": "Etap dostawy",
+          "nodeLineageTag": "4c04d7cb-3e19-41f0-8233-65ec2f6e13bb",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3449.0157179365965,
+            "y": 537.87401492780259
+          },
+          "nodeIndex": "Parametr Fracht",
+          "nodeLineageTag": "cc072d2e-4453-49f0-ba75-83957c5ca5de",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 717.18779679559691,
+            "y": 404.89127992556882
+          },
+          "nodeIndex": "dim_orders",
+          "nodeLineageTag": "dbc12a4f-2be9-4a67-9e47-53c1268bb2a7",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1957.9949611098727,
+            "y": 882.24330608622381
+          },
+          "nodeIndex": "dim_geolocation_sellers",
+          "nodeLineageTag": "b48c4276-499e-4e6f-b794-579e828f7711",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Wszystkie tabele",
+      "zoomValue": 24.721518641888313,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 36.6426618282112,
+            "y": 111.33731863187275
+          },
+          "nodeIndex": "Parametr Logistyka",
+          "nodeLineageTag": "db387b94-c785-40a1-8f36-b193986c7606",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 371.20000076293945,
+            "y": 0
+          },
+          "nodeIndex": "JĘZYK",
+          "nodeLineageTag": "02744fd5-e8de-4398-83d9-c2d5ef1ba9d3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 368.66665812488424,
+            "y": 362.00532923925573
+          },
+          "nodeIndex": "Parametr Czas",
+          "nodeLineageTag": "f4a7c3ee-aae4-4673-983c-335c5919efda",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 707.31464919235123,
+            "y": 398.06265345396156
+          },
+          "nodeIndex": "Parametr Delivery performance",
+          "nodeLineageTag": "2728ede1-a97e-4e69-abbf-c728964188dd",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 22.54933035582232,
+            "y": 438.55595701218482
+          },
+          "nodeIndex": "Etap dostawy",
+          "nodeLineageTag": "4c04d7cb-3e19-41f0-8233-65ec2f6e13bb",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 837.09506518907733,
+            "y": 75.529310815906371
+          },
+          "nodeIndex": "Parametr Fracht",
+          "nodeLineageTag": "cc072d2e-4453-49f0-ba75-83957c5ca5de",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 5
+        }
+      ],
+      "name": "parametry",
+      "zoomValue": 70.95554390096882,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Wszystkie tabele",
+  "defaultDiagram": "Wszystkie tabele"
+}

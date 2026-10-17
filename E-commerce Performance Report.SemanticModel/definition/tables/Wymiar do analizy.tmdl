@@ -1,0 +1,55 @@
+table 'Wymiar do analizy'
+	lineageTag: 5fed2816-aabe-4c4b-9668-81c4ff2b1625
+
+	column 'Wymiar do analizy'
+		lineageTag: 158d108e-d929-4ca1-b307-158ea1705d47
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Wymiar do analizy'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Wymiar do analizy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Wymiar do analizy'
+		isHidden
+		lineageTag: 194fa3e2-6409-452f-af1b-215eb33b3aac
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Wymiar do analizy'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Wymiar do analizy'
+		isHidden
+		formatString: 0
+		lineageTag: 45b0cd87-a50b-47d6-9b74-00a741612719
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column JEZYK
+		lineageTag: bb5003a5-600b-48d4-b5a5-a8546b064583
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Wymiar do analizy' = calculated
+		mode: import
+		source =
+				{
+				    ("Nazwa miary EN", NAMEOF('dim_measures'[Nazwa miary EN]), 0,"EN"),
+				    ("Nazwa miary PL", NAMEOF('dim_measures'[Nazwa miary PL]), 1,"PL")
+				}
+
+	annotation PBI_Id = 818a669a259e4f269f9a260da674c992
+

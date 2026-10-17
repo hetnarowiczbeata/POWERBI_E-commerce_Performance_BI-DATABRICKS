@@ -1,0 +1,34 @@
+table 'Etap dostawy'
+	lineageTag: 4c04d7cb-3e19-41f0-8233-65ec2f6e13bb
+
+	column Kategoria
+		lineageTag: b296775f-c1e1-4e5f-8237-0972ca0f6857
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Kategoria]
+
+		annotation SummarizationSetBy = Automatic
+
+	column PL/EN
+		lineageTag: e31ee92a-d2c4-4475-81dc-7d601051dac6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PL/EN]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Etap dostawy' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "PL/EN", STRING,
+				    "Kategoria", STRING,
+				    {
+				        {"PL", "Całkowity czas dostawy"},
+				        {"EN", "Total Delivery Time"}
+				    }
+				)
+
+	annotation PBI_Id = 4c70bb3f026b41fb913b9dbef6684638
+

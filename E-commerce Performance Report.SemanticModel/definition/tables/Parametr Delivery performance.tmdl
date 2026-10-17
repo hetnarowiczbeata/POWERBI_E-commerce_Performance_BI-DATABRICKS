@@ -1,0 +1,74 @@
+table 'Parametr Delivery performance'
+	lineageTag: 2728ede1-a97e-4e69-abbf-c728964188dd
+
+	column 'Parametr Delivery performance'
+		lineageTag: 0dd8d71d-1bec-423a-8c02-aff6b7ea9a3c
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Parametr Delivery performance'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Parametr Delivery performance'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Parametr Delivery performance'
+		isHidden
+		lineageTag: f106a61f-1c11-4bb1-b43c-a2f9dc57dfd8
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Parametr Delivery performance'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Parametr Delivery performance'
+		isHidden
+		formatString: 0
+		lineageTag: 40590d9e-88bd-47d3-8e80-b78e8b148802
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		lineageTag: 53312b28-f2f0-4d3e-b006-82716077dde4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametr Delivery performance' = calculated
+		mode: import
+		source =
+				{
+				    ("Średni czas akceptacji", NAMEOF('*Miary'[Avg Approval Time]), 0, "PL"),
+				    ("Avg Approval Time", NAMEOF('*Miary'[Avg Approval Time]), 0, "EN"),
+				
+				    ("Średni czas przewozu", NAMEOF('*Miary'[Avg Carrier Time]), 1, "PL"),
+				    ("Avg Carrier Time", NAMEOF('*Miary'[Avg Carrier Time]), 1, "EN"),
+				
+				    ("Średnie opóźnienie", NAMEOF('*Miary'[Avg Delay]), 2, "PL"),
+				    ("Avg Delay", NAMEOF('*Miary'[Avg Delay]), 2, "EN"),
+				
+				    ("Średni czas przygotowania", NAMEOF('*Miary'[Avg Preparation Time]), 3, "PL"),
+				    ("Avg Preparation Time", NAMEOF('*Miary'[Avg Preparation Time]), 3, "EN"),
+				
+				    ("Opóźnienia [%]", NAMEOF('*Miary'[Late %]), 4, "PL"),
+				    ("Late %", NAMEOF('*Miary'[Late %]), 4, "EN"),
+				
+				    ("Liczba opóźnionych zamówień", NAMEOF('*Miary'[Late Orders]), 5, "PL"),
+				    ("Late Orders", NAMEOF('*Miary'[Late Orders]), 5, "EN"),
+				
+				    ("Minimalny czas akceptacji", NAMEOF('*Miary'[Min Approval Time]), 6, "PL"),
+				    ("Min Approval Time", NAMEOF('*Miary'[Min Approval Time]), 6, "EN")
+				}
+
+	annotation PBI_Id = 6626bea7a2c148e28f9b1dd3aba153a4
+

@@ -1,0 +1,48 @@
+table dim_sellers
+	lineageTag: bbac391a-637b-44cf-bd95-bf5caf39e383
+
+	column seller_id
+		dataType: string
+		lineageTag: 3f7685cb-cdbe-4981-828f-084ec2936910
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_zip_code_prefix
+		dataType: string
+		lineageTag: 3e176618-c92a-4a52-af9d-1aa748c4abe1
+		summarizeBy: none
+		sourceColumn: seller_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_city
+		dataType: string
+		lineageTag: a8372ff8-0dbd-4e36-a889-8e0360bd0ca4
+		summarizeBy: none
+		sourceColumn: seller_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_state
+		dataType: string
+		lineageTag: 1b70f5d5-b0f9-451c-ba31-add5f5e3d22f
+		summarizeBy: none
+		sourceColumn: seller_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_sellers = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    logistics_Schema = ecommerce_logistics_Database{[Name="logistics",Kind="Schema"]}[Data],
+				    dim_sellers_Table = logistics_Schema{[Name="dim_sellers",Kind="Table"]}[Data]
+				in
+				    dim_sellers_Table
+
+	annotation PBI_ResultType = Table
+

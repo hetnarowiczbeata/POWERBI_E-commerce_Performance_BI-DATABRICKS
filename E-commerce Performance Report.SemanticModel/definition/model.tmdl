@@ -1,0 +1,50 @@
+model Model
+	culture: pl-PL
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: pl-PL
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["fct_orders","fct_payments","fct_items","dim_products","dim_category","dim_sellers","dim_geolocation","fct_feedback","dim_customers","dim_calendar","*Miary","dim_measures","JĘZYK","dim_status"]
+
+annotation PBI_ProTooling = ["DevMode","CalcGroup","MCP-PBIModeling"]
+
+ref table fct_orders
+ref table fct_payments
+ref table fct_items
+ref table DateTableTemplate_52377a69-7b87-4a71-9b2f-4ba27021e619
+ref table dim_products
+ref table dim_category
+ref table dim_sellers
+ref table dim_geolocation
+ref table fct_feedback
+ref table dim_customers
+ref table dim_calendar
+ref table LocalDateTable_54ca7a8f-9855-495b-9166-94615d2cfc4c
+ref table LocalDateTable_dfb1f52a-b769-4c10-b1f4-5f7cfb9ea933
+ref table LocalDateTable_26a25c46-e02c-4b42-827e-6cdb99a12898
+ref table LocalDateTable_38521938-1252-4b71-ba0e-1fdd53aeff3f
+ref table *Miary
+ref table dim_measures
+ref table 'Wymiar do analizy'
+ref table JĘZYK
+ref table 'Parametr Logistyka'
+ref table 'Parametr Czas'
+ref table 'Delivery Stages'
+ref table 'Grupa obliczania'
+ref table dim_status
+ref table 'Parametr Delivery performance'
+ref table 'Etap dostawy'
+ref table 'Parametr Fracht'
+ref table dim_orders
+ref table LocalDateTable_59accf72-5808-4eec-b437-316b6365d0b9
+ref table LocalDateTable_1b308d07-6d88-4e68-a789-f55349fa1c0d
+ref table dim_geolocation_sellers
+
+ref cultureInfo pl-PL
+

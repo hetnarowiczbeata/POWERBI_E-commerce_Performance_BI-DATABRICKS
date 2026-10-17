@@ -1,0 +1,421 @@
+table *Miary
+	lineageTag: 3bb74a10-d035-4777-b086-07e785e255fa
+
+	measure 'Total Orders' = DISTINCTCOUNT(fct_orders[order_id])
+		formatString: 0
+		displayFolder: Logistics
+		lineageTag: 3c98ffae-15ca-4574-8b9e-c15e4e25aa19
+
+	measure 'Delivered Orders' = CALCULATE(DISTINCTCOUNT(fct_orders[order_id]), fct_orders[is_delivered] = 1)
+		displayFolder: Logistics
+		lineageTag: 90e78161-840b-44d4-aa9e-38795436a6dd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Delivery Rate' = [Delivered Orders]/[Total Orders]
+		displayFolder: Logistics
+		lineageTag: 0535f4d6-59bd-479b-9646-dd811eea5c78
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Total Delivery Time' = AVERAGE(fct_orders[delivery_time_days])
+		displayFolder: Logistics
+		lineageTag: 0bd398f8-3c82-4ceb-aa71-25b4fb1b1821
+
+	measure On-Time = SUM(fct_orders[On time])
+		formatString: 0
+		displayFolder: Logistics
+		lineageTag: b26eb573-d1d3-4651-9dbc-c3b7a427dc20
+
+	measure 'On-Time %' = DIVIDE([On-Time], [Delivered Orders])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Logistics
+		lineageTag: 7d80e23b-68e9-4a5a-adb3-8dd5058071ef
+
+	measure 'Avg Approval Time' = AVERAGEX(fct_orders, DATEDIFF(fct_orders[order_purchase_timestamp], fct_orders[order_approved_at], HOUR))
+		displayFolder: Delivery Performance
+		lineageTag: a6832cb1-f7f8-439c-948e-c6c462091476
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Preparation Time' = AVERAGEX(fct_orders, DATEDIFF(fct_orders[order_approved_at], fct_orders[order_delivered_carrier_date], HOUR))
+		displayFolder: Delivery Performance
+		lineageTag: c85b6a72-ea78-42fb-a0f1-72449fefa35b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Carrier Time' = AVERAGEX(fct_orders, DATEDIFF(fct_orders[order_delivered_carrier_date], fct_orders[order_delivered_customer_date], HOUR))
+		displayFolder: Delivery Performance
+		lineageTag: 8d739df5-e2f0-4040-a691-7f8ec5eff086
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Delay' = AVERAGEX(FILTER(fct_orders, fct_orders[On time] = 0), DATEDIFF(fct_orders[order_estimated_delivery_date], fct_orders[order_delivered_customer_date], DAY))
+		displayFolder: Delivery Performance
+		lineageTag: 02732c6e-db2f-4aa9-b4c5-101c1fa18db9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Late Orders' = [Delivered Orders] - [On-Time]
+		formatString: 0
+		displayFolder: Delivery Performance
+		lineageTag: 6ebfcfbb-c08f-4bd6-aa9c-01c51649e6a4
+
+	measure 'Late %' = DIVIDE([Late Orders], [Delivered Orders])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Delivery Performance
+		lineageTag: e24b7528-f257-45c9-aed4-5596d5e7c647
+
+	measure 'Avg Review Score' = AVERAGE(fct_feedback[avg_review_score])
+		displayFolder: Delivery & Customer Experience
+		lineageTag: 0d79b55e-d1a4-4993-b0bd-c53f14b2ee46
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Review 1-2 %' = DIVIDE(CALCULATE(COUNTROWS(fct_feedback), fct_feedback[avg_review_score] <= 2), COUNT(fct_feedback[avg_review_score]))
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Delivery & Customer Experience
+		lineageTag: bbd3f0dc-4d74-4780-aef5-2d45a4e83f1e
+
+	measure 'Review 4-5 %' = DIVIDE(CALCULATE(COUNTROWS(fct_feedback), fct_feedback[avg_review_score] >= 4), COUNT(fct_feedback[avg_review_score]))
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Delivery & Customer Experience
+		lineageTag: 74f6eb3d-b111-43b6-b4d9-a9d4036d4f19
+
+	measure 'Avg Review On-Time' =
+			VAR OnTimeOrderIds = CALCULATETABLE(VALUES(fct_orders[order_id]), fct_orders[On time] = 1)
+			RETURN CALCULATE(AVERAGE(fct_feedback[avg_review_score]), TREATAS(OnTimeOrderIds, fct_feedback[order_id]))
+		displayFolder: Delivery & Customer Experience
+		lineageTag: 4a1d0636-adb4-4f72-8f4a-cf93b1bc7e04
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Review Late' =
+			VAR LateOrderIds = CALCULATETABLE(VALUES(fct_orders[order_id]), fct_orders[On time] = 0)
+			RETURN CALCULATE(AVERAGE(fct_feedback[avg_review_score]), TREATAS(LateOrderIds, fct_feedback[order_id]))
+		displayFolder: Delivery & Customer Experience
+		lineageTag: e1d84d38-6be9-4ef1-a2a8-fc0d4b0a6737
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Freight' = SUM(fct_items[freight_value])
+		displayFolder: Freight & Product Logistics
+		lineageTag: 417ec0d8-e52a-4f89-bf35-4811ec8cb6c9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Freight' = AVERAGE(fct_items[freight_value])
+		displayFolder: Freight & Product Logistics
+		lineageTag: c4846d8c-7f98-40b7-a1b5-a5c18d82c1f7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Freight / Order' = DIVIDE([Total Freight], [Orders])
+		displayFolder: Freight & Product Logistics
+		lineageTag: 57cc64ad-9813-4c21-9d8d-c062f0f09358
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Freight / Item' = DIVIDE([Total Freight], COUNTROWS(fct_items))
+		displayFolder: Freight & Product Logistics
+		lineageTag: 7dc0c12f-ba5c-44c8-8c7e-8c2b90f909aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Freight / Product Value %' = DIVIDE([Total Freight], SUM(fct_items[price]))
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Freight & Product Logistics
+		lineageTag: 44c2c38d-a01b-444c-8572-0cecfafdb3aa
+
+	measure 'Wszystkie miary' =
+			
+			SWITCH(
+			    [Wybrany KPI],
+			
+			    1, [Total Orders],
+			    2, [Delivered Orders],
+			    3, [Delivery Rate],
+			    4, [Avg Total Delivery Time],
+			    5, [On-Time %],
+			    6, [Late Orders],
+			    7, [Avg Delay],
+			    8, [Total Freight],
+			    9, [Avg Freight / Order],
+			    10, [Avg Approval Time],
+			    11, [Avg Preparation Time],
+			    12, [Avg Carrier Time],
+			    13, [Late %],
+			    14, [Orders],
+			    15, [Items],
+			    16, [Avg Freight],
+			    17, [Avg Review Score],
+			    18, [Avg Freight / Item],
+			    19, [Freight / Product Value %],
+			    20, [Review 1-2 %],
+			    21, [Review 4-5 %],
+			    22, [Avg Review On-Time],
+			    23, [Avg Review Late],
+			    24, [Total Sellers],
+			    25, [Total Revenue],
+			    26, [Avg Revenue per Seller],
+			    27, [Avg Order Value],
+			
+			    BLANK()
+			)
+		displayFolder: calc
+		lineageTag: fc305389-cbb5-4f2f-aad4-2eabcdc7dce1
+
+		formatStringDefinition =
+				VAR TypFormatu =
+				    SELECTEDVALUE('dim_measures'[Format])
+				
+				RETURN
+				    SWITCH(
+				        TypFormatu,
+				        "Liczba całkowita", "#,##0",
+				        "%", "0.00%",
+				        "#,##0.00"
+				    )
+
+	measure 'Wybrany KPI' = MIN(dim_measures[Nr miary])
+		displayFolder: calc
+		lineageTag: f0bf7821-4d95-4474-9b29-6a83cdd05e7c
+
+		formatStringDefinition =
+				VAR TypFormatu =
+				    SELECTEDVALUE('dim_measures'[Format])
+				
+				RETURN
+				SWITCH(
+				    TypFormatu,
+				    "Liczba całkowita", "#,##0",
+				    "Liczba dziesiętna", "#,##0.00",
+				    "%", "0.00%",
+				    "#,##0.00"
+				)
+
+	measure Items = COUNTROWS(fct_items)
+		formatString: 0
+		displayFolder: Seller Performance
+		lineageTag: be1a2cd1-0f57-408f-9c2e-2dff564b7127
+
+	measure Orders = DISTINCTCOUNT(fct_items[order_id])
+		formatString: 0
+		displayFolder: Seller Performance
+		lineageTag: b651fbad-b078-4a27-aa9e-7d4bed87a1c4
+
+	measure PY =
+			
+			CALCULATE(
+			    [Wszystkie miary],
+			    DATEADD('dim_calendar'[Date], -1, YEAR)
+			)
+		displayFolder: calc
+		lineageTag: fe452734-371f-4831-b636-80a844b15288
+
+		formatStringDefinition =
+				VAR TypFormatu =
+				    SELECTEDVALUE('dim_measures'[Format])
+				VAR kolorczcionki=SELECTEDVALUE(dim_measures[Kierunek KPI])
+				VAR zmianavsPY=[Wszystkie miary]-[PY]
+				RETURN
+				    SWITCH(
+				        TypFormatu,
+				        "Liczba całkowita", "#,##0",
+				        "%", "0.00%",
+				        "#,##0.00"
+				    )
+
+	measure 'Wybrany format' = min(dim_measures[Format])
+		displayFolder: tech
+		lineageTag: ef5c42ac-bbba-4203-902b-80272b536839
+
+	measure 'Kolor KPI ref' =
+			
+			VAR ZmianaVsPY = [Wszystkie miary] - [PY]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(ZmianaVsPY), "#808080",
+			        ZmianaVsPY > 0,
+			            SELECTEDVALUE(dim_measures[Kolor przy wzroście]),
+			        ZmianaVsPY < 0,
+			            SELECTEDVALUE(dim_measures[Kolor przy spadku]),
+			        "#808080"
+			    )
+		displayFolder: tech
+		lineageTag: 2f099357-288e-427d-b3bb-5feb2a86790c
+
+	measure 'VS PY' =
+			
+			VAR AC = [Wszystkie miary]
+			VAR PY = [PY]
+			
+			VAR Zmiana =
+			    DIVIDE(AC - PY, PY)
+			
+			VAR Strzalka =
+			    SWITCH(
+			        TRUE(),
+			        Zmiana > 0, "▲",
+			        Zmiana < 0, "▼",
+			        "→"
+			    )
+			
+			RETURN
+			    IF(
+			        ISBLANK(AC) || ISBLANK(PY) || PY = 0,
+			        "",
+			        Strzalka & " " & FORMAT(ABS(Zmiana), "0.00%")
+			    )
+		displayFolder: calc
+		lineageTag: ea5e0392-6703-4074-80af-a9b3dbd06908
+
+	measure 'PY etykieta' =
+			
+			VAR Wynik = [PY]
+			
+			VAR TypFormatu =
+			    SELECTEDVALUE(dim_measures[Format])
+			
+			RETURN
+			    IF(
+			        ISBLANK(Wynik),
+			        BLANK(),
+			        "PY " &
+			        SWITCH(
+			            TypFormatu,
+			            "Liczba całkowita", FORMAT(Wynik, "#,##0"),
+			            "%", FORMAT(Wynik, "0.00%"),
+			            FORMAT(Wynik, "#,##0.00")
+			        )
+			    )
+		displayFolder: calc
+		lineageTag: 9915d963-6562-4d57-8c85-8e3ef493cd5b
+
+	measure 'Total Sellers' = DISTINCTCOUNT(dim_sellers[seller_id])
+		formatString: 0
+		displayFolder: Seller Performance
+		lineageTag: df790709-e7c4-4321-be48-62e63baf3765
+
+	/// Gross product sales from item prices; seller-filterable and excludes freight and payment adjustments.
+	measure 'Total Revenue' = SUM(fct_items[price])
+		formatString: #,0
+		displayFolder: Seller Performance
+		lineageTag: b255eed3-bc8f-41b2-b5f8-dfe3b4873c58
+
+	measure 'Avg Revenue per Seller' = DIVIDE([Total Revenue], [Total Sellers])
+		formatString: #,0.00
+		displayFolder: Seller Performance
+		lineageTag: d67a285f-21c1-4c44-af90-5faf57ef61bf
+
+	measure 'Avg Order Value' = DIVIDE([Total Revenue], [Orders])
+		formatString: #,0.00
+		displayFolder: Seller Performance
+		lineageTag: 13cf87f0-6ee3-4029-969b-de591c43594a
+
+	measure 'Tytuł filtra okresu' =
+			
+			VAR Jezyk =
+			    SELECTEDVALUE('JĘZYK'[Kolumna 1], "PL")
+			RETURN
+			    SWITCH(
+			        Jezyk,
+			        "PL", "Okres",
+			        "EN", "Period",
+			        "Wybierz okres"
+			    )
+		lineageTag: 141fdb70-d465-43df-b6bb-fc4cb9f81db1
+
+	measure 'Tytuł kpi' =
+			
+			VAR Jezyk =
+			    SELECTEDVALUE('JĘZYK'[Kolumna 1], "PL")
+			RETURN
+			    SWITCH(
+			        Jezyk,
+			        "PL", "Wskaźnik wydajności",
+			        "EN", "Performance Indicator",
+			        "Wybierz okres"
+			    )
+		lineageTag: ecc05f4d-65ec-49fe-8b91-1cf0b2d87ccb
+
+	measure 'Tytuł filtra czasu' =
+			
+			VAR Jezyk =
+			    SELECTEDVALUE('JĘZYK'[Kolumna 1], "PL")
+			RETURN
+			    SWITCH(
+			        Jezyk,
+			        "PL", "Poziom analizy czasu",
+			        "EN", "Time Granularity"
+			    )
+		lineageTag: 77dd0e23-35ff-4af3-a2bb-abf4e823bcbc
+
+	measure 'On-Time Orders' = [On-Time]
+		formatString: 0
+		displayFolder: Logistics
+		lineageTag: 08c71222-54bc-46d3-9e6d-d6c1c154937f
+
+	measure 'Stage Time' = BLANK()
+		formatString: 0
+		lineageTag: a905ab29-30bc-477f-a5ee-e239bd75bec2
+
+	measure 'Min Approval Time' = MINX(fct_orders, DATEDIFF(fct_orders[order_purchase_timestamp], fct_orders[order_approved_at], HOUR))
+		displayFolder: Delivery Performance
+		lineageTag: 47f35b94-dc17-49e3-84c1-79cccc2a3058
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Approval Time' = AVERAGE(fct_orders[Approval Hours])
+		displayFolder: Delivery Performance
+		lineageTag: 2a72ee0b-f97d-4402-990a-57d7c5e0684c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Preparation Time' = AVERAGE(fct_orders[Preparation Hours])
+		displayFolder: Delivery Performance
+		lineageTag: c44e7e76-b29b-44bd-8b83-53cc0dbeed7c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Carrier Time' = AVERAGE(fct_orders[Carrier Hours])
+		displayFolder: Delivery Performance
+		lineageTag: 4650cba5-e6b0-43b2-98c2-5b89a3bb9e1c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Filtr języka' =
+			
+			VAR WybranyJezyk =
+			    SELECTEDVALUE('JĘZYK'[Kolumna 1], "PL")
+			VAR JezykWiersza =
+			    SELECTEDVALUE('Etap dostawy'[PL/EN])
+			RETURN
+			    IF(JezykWiersza = WybranyJezyk, 1, 0)
+		displayFolder: tech
+		lineageTag: 8f020b1e-f20c-4365-aff4-405252c706f0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Kolumna 1'
+		dataType: string
+		isHidden
+		lineageTag: b7a80098-bfee-40c1-affd-67faf22d9b44
+		summarizeBy: none
+		sourceColumn: Kolumna 1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition *Miary = m
+		mode: import
+		source =
+				let
+				  Źródło = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Kolumna 1" = _t])
+				in
+				  Źródło
+
+	annotation PBI_ResultType = Table
+

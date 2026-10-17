@@ -1,0 +1,60 @@
+table dim_geolocation
+	lineageTag: a1fd4f9e-9a6c-4aca-93be-5366b8133f58
+
+	column geolocation_zip_code_prefix
+		dataType: string
+		lineageTag: ee9d2985-cf67-4b12-a633-53fc66f99f71
+		summarizeBy: none
+		sourceColumn: geolocation_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_lat
+		dataType: double
+		lineageTag: a3efa04e-2217-4a43-a7bf-371e6c368faa
+		summarizeBy: none
+		sourceColumn: geolocation_lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geolocation_lng
+		dataType: double
+		lineageTag: 72587511-6cf0-4f6a-9830-da58a307c01d
+		summarizeBy: none
+		sourceColumn: geolocation_lng
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geolocation_city
+		dataType: string
+		lineageTag: a23b876c-e560-4dd3-98a3-7db2f1f27ad5
+		summarizeBy: none
+		sourceColumn: geolocation_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_state
+		dataType: string
+		lineageTag: 168847d7-fadb-4621-89b2-b029e488f2ee
+		summarizeBy: none
+		sourceColumn: geolocation_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_geolocation = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    logistics_Schema = ecommerce_logistics_Database{[Name="logistics",Kind="Schema"]}[Data],
+				    dim_geolocation_Table = logistics_Schema{[Name="dim_geolocation",Kind="Table"]}[Data]
+				in
+				    dim_geolocation_Table
+
+	annotation PBI_ResultType = Table
+

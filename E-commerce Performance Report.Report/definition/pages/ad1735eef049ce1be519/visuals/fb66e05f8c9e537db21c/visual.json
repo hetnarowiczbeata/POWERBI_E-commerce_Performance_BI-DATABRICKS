@@ -1,0 +1,212 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "fb66e05f8c9e537db21c",
+  "position": {
+    "x": 1556.6666666666667,
+    "y": 820,
+    "z": 8001,
+    "height": 553.33333333333337,
+    "width": 1110,
+    "tabOrder": 8001
+  },
+  "visual": {
+    "visualType": "hundredPercentStackedBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Etap dostawy"
+                    }
+                  },
+                  "Property": "Kategoria"
+                }
+              },
+              "queryRef": "Etap dostawy.Kategoria",
+              "nativeQueryRef": "Kategoria",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Avg Approval Time"
+                }
+              },
+              "queryRef": "*Miary.Avg Approval Time",
+              "nativeQueryRef": "Avg Approval Time"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Avg Preparation Time"
+                }
+              },
+              "queryRef": "*Miary.Avg Preparation Time",
+              "nativeQueryRef": "Avg Preparation Time"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Avg Carrier Time"
+                }
+              },
+              "queryRef": "*Miary.Avg Carrier Time",
+              "nativeQueryRef": "Avg Carrier Time"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "*Miary"
+                  }
+                },
+                "Property": "Avg Approval Time"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "88df77a971567220d4aa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Avg Approval Time"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b065c9a054b3d7ff13c6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Avg Carrier Time"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "37f00bc5b25d062f6753",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Avg Preparation Time"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "af0f285966b8583aab75",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Etap dostawy"
+              }
+            },
+            "Property": "Kategoria"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e2e72c16bfb20aec4144",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Filtr języka"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "*",
+              "Entity": "*Miary",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "*"
+                        }
+                      },
+                      "Property": "Filtr języka"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+table fct_items
+	lineageTag: 21f223c2-cbe4-4dd8-ad3d-f099889743b6
+
+	column order_id
+		dataType: string
+		lineageTag: f28eb160-5f2b-4658-adca-13fd4764fe42
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b585c120-4d39-4fc5-90dd-68c9c0974cf9
+		summarizeBy: sum
+		sourceColumn: order_item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: e0864d9b-f5f9-42ad-a324-8ae1f3762ff3
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_id
+		dataType: string
+		lineageTag: 97f6593d-32d7-47d7-953a-370a11de3015
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_limit_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 012007a6-8e88-4abd-afc7-08b519a04d43
+		summarizeBy: none
+		sourceColumn: shipping_limit_date
+
+		variation Odmiana
+			isDefault
+			relationship: 2600d66c-fde6-4707-9527-cb13c1fc1e8b
+			defaultHierarchy: LocalDateTable_59accf72-5808-4eec-b437-316b6365d0b9.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column price
+		dataType: double
+		lineageTag: e8a43f82-bd61-4d0f-b699-f9cfa115d8f2
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_value
+		dataType: double
+		lineageTag: 02d9dc30-cdab-431d-ac29-2871e0f82202
+		summarizeBy: sum
+		sourceColumn: freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_items = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    sales_Schema = ecommerce_logistics_Database{[Name="sales",Kind="Schema"]}[Data],
+				    fct_items_Table = sales_Schema{[Name="fct_items",Kind="Table"]}[Data],
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(fct_items_Table, {{"shipping_limit_date", type date}})
+				in
+				    #"Zmieniono typ kolumny"
+
+	annotation PBI_ResultType = Table
+

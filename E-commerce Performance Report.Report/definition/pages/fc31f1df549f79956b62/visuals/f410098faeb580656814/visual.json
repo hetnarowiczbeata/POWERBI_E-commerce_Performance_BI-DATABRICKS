@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "f410098faeb580656814",
+  "position": {
+    "x": 1516.6666666666667,
+    "y": 816.66666666666674,
+    "z": 6000,
+    "height": 533.33333333333337,
+    "width": 1140,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_orders"
+                    }
+                  },
+                  "Property": "Delivery Time Bins"
+                }
+              },
+              "queryRef": "fct_orders.Delivery Time Bins",
+              "nativeQueryRef": "Delivery Time Bins",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Total Orders"
+                }
+              },
+              "queryRef": "*Miary.Total Orders",
+              "nativeQueryRef": "Total Orders"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_orders"
+                  }
+                },
+                "Property": "Delivery Time Bins"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

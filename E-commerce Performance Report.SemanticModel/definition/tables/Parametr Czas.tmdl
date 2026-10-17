@@ -1,0 +1,62 @@
+table 'Parametr Czas'
+	lineageTag: f4a7c3ee-aae4-4673-983c-335c5919efda
+
+	column 'Parametr Czas'
+		lineageTag: 24a0db48-5088-4ec9-b22b-1ff08d0d7760
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Parametr Czas'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Parametr Czas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Parametr Czas'
+		isHidden
+		lineageTag: 3426217d-47ac-4a57-989f-e2b5973f6f1e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Parametr Czas'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Parametr Czas'
+		isHidden
+		formatString: 0
+		lineageTag: 559d72a8-62a5-43b8-b5dd-69373238cb63
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		lineageTag: f3a9b364-5386-4b17-b56e-a943b1631085
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametr Czas' = calculated
+		mode: import
+		source =
+				{
+				    ("Year", NAMEOF('dim_calendar'[Year]), 0, "EN"),
+				    ("Rok", NAMEOF('dim_calendar'[Year]), 0, "PL"),
+				
+				    ("Year-Month", NAMEOF('dim_calendar'[Year_month]), 1, "EN"),
+				    ("Rok-Miesiąc", NAMEOF('dim_calendar'[Year_month]), 1, "PL"),
+				
+				    ("Year-Week", NAMEOF('dim_calendar'[Year_week]), 2, "EN"),
+				    ("Rok-Tydzień", NAMEOF('dim_calendar'[Year_week]), 2, "PL")
+				}
+
+	annotation PBI_Id = 142b183959fd49d9bae804d0f24c8672
+

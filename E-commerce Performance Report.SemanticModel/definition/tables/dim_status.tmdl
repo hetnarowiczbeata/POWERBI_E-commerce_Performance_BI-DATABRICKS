@@ -1,0 +1,23 @@
+table dim_status
+	lineageTag: 65d50e90-e17c-403b-9e68-b56cf3156ff8
+
+	column order_status
+		dataType: string
+		lineageTag: d7481428-e225-4fc0-a4b2-ba295a0b3939
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_status = m
+		mode: import
+		source =
+				let
+				  Źródło = fct_orders,
+				  #"Wybierz kolumny" = Table.SelectColumns(Źródło, {"order_status"}),
+				  #"Usunięto duplikaty" = Table.Distinct(#"Wybierz kolumny", {"order_status"})
+				in
+				  #"Usunięto duplikaty"
+
+	annotation PBI_ResultType = Table
+

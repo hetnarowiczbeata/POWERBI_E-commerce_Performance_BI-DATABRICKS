@@ -1,0 +1,220 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "d8de9c0e5bc26a0066d8",
+  "position": {
+    "x": 1557.5,
+    "y": 310,
+    "z": 8002,
+    "height": 487.5,
+    "width": 1110,
+    "tabOrder": 8002
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_calendar"
+                    }
+                  },
+                  "Property": "Year_month"
+                }
+              },
+              "queryRef": "dim_calendar.Year_month",
+              "nativeQueryRef": "Rok-Miesiąc",
+              "active": true,
+              "displayName": "Rok-Miesiąc"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parametr Czas"
+                    }
+                  },
+                  "Property": "Parametr Czas"
+                }
+              },
+              "index": 0,
+              "length": 1
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_geolocation"
+                    }
+                  },
+                  "Property": "geolocation_state"
+                }
+              },
+              "queryRef": "dim_geolocation.geolocation_state",
+              "nativeQueryRef": "geolocation_state",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Late %"
+                }
+              },
+              "queryRef": "*Miary.Late %",
+              "nativeQueryRef": "Opóźnienia [%]",
+              "displayName": "Opóźnienia [%]"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parametr Delivery performance"
+                    }
+                  },
+                  "Property": "Parametr Delivery performance"
+                }
+              },
+              "index": 0,
+              "length": 1
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "*Miary"
+                            }
+                          },
+                          "Property": "Late %"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#a0d1ff'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#0d6abf'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "*Miary.Late %"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "182acb82b578373c57ba",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Late %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "846197f4383abc35af85",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_geolocation"
+              }
+            },
+            "Property": "geolocation_state"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

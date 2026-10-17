@@ -1,0 +1,32 @@
+table dim_category
+	lineageTag: 11c70b22-9dc6-4737-b057-a465ea2ec930
+
+	column product_category_name
+		dataType: string
+		lineageTag: 0f1b6e6a-bc8c-4a2e-914a-342b93afacdc
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name_english
+		dataType: string
+		lineageTag: 438a0f7b-ee58-473b-9ba3-33a76084863a
+		summarizeBy: none
+		sourceColumn: product_category_name_english
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_category = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    products_Schema = ecommerce_logistics_Database{[Name="products",Kind="Schema"]}[Data],
+				    dim_category_Table = products_Schema{[Name="dim_category",Kind="Table"]}[Data]
+				in
+				    dim_category_Table
+
+	annotation PBI_ResultType = Table
+

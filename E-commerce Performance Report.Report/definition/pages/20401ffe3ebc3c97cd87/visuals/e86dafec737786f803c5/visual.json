@@ -1,0 +1,454 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "e86dafec737786f803c5",
+  "position": {
+    "x": 201.11111111111111,
+    "y": 70,
+    "z": 0,
+    "height": 843.33333333333337,
+    "width": 1103.3333333333335,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_calendar"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "dim_calendar.Year",
+              "nativeQueryRef": "Year",
+              "displayName": "Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_calendar"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "dim_calendar.Year",
+              "nativeQueryRef": "Year",
+              "displayName": "Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_calendar"
+                    }
+                  },
+                  "Property": "Year_month"
+                }
+              },
+              "queryRef": "dim_calendar.Year_month",
+              "nativeQueryRef": "Year-Month",
+              "displayName": "Year-Month"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_calendar"
+                    }
+                  },
+                  "Property": "Year_month"
+                }
+              },
+              "queryRef": "dim_calendar.Year_month",
+              "nativeQueryRef": "Year-Month",
+              "displayName": "Year-Month"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_calendar"
+                    }
+                  },
+                  "Property": "Year_week"
+                }
+              },
+              "queryRef": "dim_calendar.Year_week",
+              "nativeQueryRef": "Year-Week",
+              "displayName": "Year-Week"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_calendar"
+                    }
+                  },
+                  "Property": "Year_week"
+                }
+              },
+              "queryRef": "dim_calendar.Year_week",
+              "nativeQueryRef": "Year-Week",
+              "displayName": "Year-Week"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_geolocation"
+                    }
+                  },
+                  "Property": "geolocation_state"
+                }
+              },
+              "queryRef": "dim_geolocation.geolocation_state",
+              "nativeQueryRef": "geolocation_state"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Late %"
+                }
+              },
+              "queryRef": "*Miary.Late %",
+              "nativeQueryRef": "Late %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Late Orders"
+                }
+              },
+              "queryRef": "*Miary.Late Orders",
+              "nativeQueryRef": "Late Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Total Orders"
+                }
+              },
+              "queryRef": "*Miary.Total Orders",
+              "nativeQueryRef": "Total Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Delivered Orders"
+                }
+              },
+              "queryRef": "*Miary.Delivered Orders",
+              "nativeQueryRef": "Delivered Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "On-Time"
+                }
+              },
+              "queryRef": "*Miary.On-Time",
+              "nativeQueryRef": "On-Time"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_orders"
+                    }
+                  },
+                  "Property": "order_id"
+                }
+              },
+              "queryRef": "fct_orders.order_id",
+              "nativeQueryRef": "order_id"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parametr Czas"
+                    }
+                  },
+                  "Property": "Parametr Czas"
+                }
+              },
+              "index": 0,
+              "length": 6
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "*Miary"
+                  }
+                },
+                "Property": "Late %"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c45ab0452b21e98baeeb",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Delivered Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eb31d3ae61e54013ebd8",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_geolocation"
+              }
+            },
+            "Property": "geolocation_state"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "52ad72cba2fe27efe4ba",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Late %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0687d7cfad3753d16ef6",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Late Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ee983606f2cd48867691",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "On-Time"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "28505434dd0d0a400df4",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendar"
+              }
+            },
+            "Property": "Week of Year"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_calendar",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Week of Year"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "41L"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "a775be80c563cd256b9c",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Total Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bc19c0fa58cf399affc3",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendar"
+              }
+            },
+            "Property": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "81ce48e75cecc25c02d2",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendar"
+              }
+            },
+            "Property": "Year_month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c8737c0d23b37af45423",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendar"
+              }
+            },
+            "Property": "Year_week"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e4f7721f2f8917765d0d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_orders"
+              }
+            },
+            "Property": "order_id"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

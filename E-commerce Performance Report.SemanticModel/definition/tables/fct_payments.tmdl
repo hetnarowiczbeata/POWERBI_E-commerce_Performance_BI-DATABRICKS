@@ -1,0 +1,60 @@
+table fct_payments
+	lineageTag: 9601db96-c88b-4e8e-953a-3cac15cc85c4
+
+	column order_id
+		dataType: string
+		lineageTag: bcda0687-fbc9-4eeb-9940-545ceb1bb61f
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_sequential
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ce1b5ce-283c-4e49-8cf1-45c5d8aad512
+		summarizeBy: sum
+		sourceColumn: payment_sequential
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_type
+		dataType: string
+		lineageTag: 4985eedf-7dae-40f5-98ee-f2e594e24f8d
+		summarizeBy: none
+		sourceColumn: payment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_installments
+		dataType: int64
+		formatString: 0
+		lineageTag: f26de22a-94e6-4691-ab3e-11254d44fb58
+		summarizeBy: sum
+		sourceColumn: payment_installments
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_value
+		dataType: double
+		lineageTag: 7b382cb5-60b4-4ebd-9316-0c7f967ca41a
+		summarizeBy: sum
+		sourceColumn: payment_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_payments = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    sales_Schema = ecommerce_logistics_Database{[Name="sales",Kind="Schema"]}[Data],
+				    fct_payments_Table = sales_Schema{[Name="fct_payments",Kind="Table"]}[Data]
+				in
+				    fct_payments_Table
+
+	annotation PBI_ResultType = Table
+

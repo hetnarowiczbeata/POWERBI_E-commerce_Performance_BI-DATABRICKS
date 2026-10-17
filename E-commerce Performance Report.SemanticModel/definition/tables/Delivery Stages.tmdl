@@ -1,0 +1,26 @@
+table 'Delivery Stages'
+	lineageTag: c02f74f6-7a29-4631-b978-39562da9f7d6
+
+	column Stage
+		lineageTag: 5fc3d151-5819-4a21-be28-f244d57ffb91
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Stage]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Delivery Stages' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Stage", STRING,
+				    {
+				        {"Approval"},
+				        {"Preparation"},
+				        {"Carrier"}
+				    }
+				)
+
+	annotation PBI_Id = e84c4444d1124295b7adc4085ee1674f
+

@@ -1,0 +1,32 @@
+table dim_orders
+	lineageTag: dbc12a4f-2be9-4a67-9e47-53c1268bb2a7
+
+	column order_id
+		lineageTag: dbff3f41-8393-46a2-9f60-ed6df6b26066
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [order_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_purchase_timestamp
+		formatString: General Date
+		lineageTag: 6815cae7-37e3-4af6-9006-94b6000e3dbf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [order_purchase_timestamp]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_orders = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				DISTINCT(
+				    UNION(SELECTCOLUMNS('fct_orders',"order_id",fct_orders[order_id]),SELECTCOLUMNS('fct_items',"order_id",fct_items[order_id]))),
+				    "order_purchase_timestamp",
+				    LOOKUPVALUE(fct_orders[order_purchase_timestamp],fct_orders[order_id],[order_id]))
+
+	annotation PBI_Id = 903280d11c274efeb08a7e2da8bb3650
+

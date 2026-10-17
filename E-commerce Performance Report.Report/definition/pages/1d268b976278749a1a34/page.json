@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "1d268b976278749a1a34",
+  "displayName": "Freight & Product Logistics",
+  "displayOption": "ActualSize",
+  "height": 1400,
+  "width": 2700
+}

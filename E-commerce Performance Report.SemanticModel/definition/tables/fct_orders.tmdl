@@ -1,0 +1,264 @@
+table fct_orders
+	lineageTag: 1fe1a9d4-fa48-4a2b-8cd7-06ada5dcc9ad
+
+	measure 'Test Approval AVG' =
+			
+			AVERAGE(fct_orders[Approval Hours])
+		lineageTag: 94460027-9160-4e93-a57f-f1069afd215d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column order_id
+		dataType: string
+		lineageTag: 96b27aa7-be9e-4ec5-871e-220d0b8c18d0
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 9b4e911a-f52d-4d14-9c94-b89ac71de692
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_status
+		dataType: string
+		lineageTag: 4c5e307a-f446-464c-b571-3901cf542cd8
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_purchase_timestamp
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 1d6cbd1f-38b8-4813-ab15-f9afd064ea7b
+		summarizeBy: none
+		sourceColumn: order_purchase_timestamp
+
+		variation Odmiana
+			isDefault
+			relationship: c32489ed-41e3-4edd-977d-ceccad460020
+			defaultHierarchy: LocalDateTable_1b308d07-6d88-4e68-a789-f55349fa1c0d.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_approved_at
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 3a5db3a1-b446-4796-a99a-b4c949df2568
+		summarizeBy: none
+		sourceColumn: order_approved_at
+
+		variation Odmiana
+			isDefault
+			relationship: aa0e6606-ba8e-4260-a922-327fcaab266f
+			defaultHierarchy: LocalDateTable_54ca7a8f-9855-495b-9166-94615d2cfc4c.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_delivered_carrier_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ca331b82-d04b-499c-b692-d355260c6083
+		summarizeBy: none
+		sourceColumn: order_delivered_carrier_date
+
+		variation Odmiana
+			isDefault
+			relationship: 5e002957-0a85-47de-913f-e383ccffb0bf
+			defaultHierarchy: LocalDateTable_dfb1f52a-b769-4c10-b1f4-5f7cfb9ea933.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_delivered_customer_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bdb3695c-1e7c-4726-8f50-b538034b3571
+		summarizeBy: none
+		sourceColumn: order_delivered_customer_date
+
+		variation Odmiana
+			isDefault
+			relationship: 9b2f0f30-9213-4a7b-a836-7f01017c0d32
+			defaultHierarchy: LocalDateTable_26a25c46-e02c-4b42-827e-6cdb99a12898.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_estimated_delivery_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 974ec39b-8b47-4b2b-9263-d9f03abdb962
+		summarizeBy: none
+		sourceColumn: order_estimated_delivery_date
+
+		variation Odmiana
+			isDefault
+			relationship: 3c638f9a-f7d7-40da-b85c-785666c2f8b2
+			defaultHierarchy: LocalDateTable_38521938-1252-4b71-ba0e-1fdd53aeff3f.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_delivered
+		dataType: int64
+		formatString: 0
+		lineageTag: d3dd5c32-e9c9-4849-8118-08d87a12f703
+		summarizeBy: sum
+		sourceColumn: is_delivered
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_time_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 53e6b192-15f6-44b0-8f78-93459d5b66b0
+		summarizeBy: sum
+		sourceColumn: delivery_time_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'On time' =
+			
+			IF(
+			    fct_orders[is_delivered] = 1
+			        && NOT ISBLANK(fct_orders[order_delivered_customer_date])
+			        && NOT ISBLANK(fct_orders[order_estimated_delivery_date]),
+			    IF(
+			        fct_orders[order_delivered_customer_date]
+			            <= fct_orders[order_estimated_delivery_date],
+			        1,
+			        0
+			    ),
+			    BLANK()
+			)
+		formatString: 0
+		lineageTag: 078af863-ffdb-4acb-a8ce-81dc833d4b40
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column delay_days =
+			IF([On-Time] = 0,
+			    DATEDIFF(
+			        fct_orders[order_estimated_delivery_date],
+			        fct_orders[order_delivered_customer_date],
+			        DAY
+			    ),BLANK())
+		formatString: 0
+		lineageTag: e8865093-c682-4632-9668-06fb76cf39fe
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Time Bins' =
+			
+			VAR Days =
+			    ROUNDUP(fct_orders[delivery_time_days], 0)
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(fct_orders[delivery_time_days]), BLANK(),
+			        Days < 0, BLANK(),
+			        Days <= 1, "0-1 days",
+			        Days <= 3, "2-3 days",
+			        Days <= 10, "4-10 days",
+			        Days <= 15, "11-15 days",
+			        "16+ days"
+			    )
+		lineageTag: a62f294c-249b-4b2b-8c7f-270048a54153
+		summarizeBy: none
+		sortByColumn: 'Delivery Time Bins Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Time Bins Sort' =
+			
+			VAR Days =
+			    ROUNDUP(fct_orders[delivery_time_days], 0)
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(fct_orders[delivery_time_days]), BLANK(),
+			        Days < 0, BLANK(),
+			        Days <= 1, 1,
+			        Days <= 3, 2,
+			        Days <= 10, 3,
+			        Days <= 15, 4,
+			        5
+			    )
+		formatString: 0
+		lineageTag: bc5bbf88-1aa3-42a8-ab2d-104bf7425be8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Approval Hours' =
+			
+			DATEDIFF(
+			    fct_orders[order_purchase_timestamp],
+			    fct_orders[order_approved_at],
+			    HOUR
+			)
+		formatString: 0
+		lineageTag: a1e0dc7c-1008-4ba2-ac09-65ddbb99a103
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Preparation Hours' =
+			
+			DATEDIFF(
+			    fct_orders[order_approved_at],
+			    fct_orders[order_delivered_carrier_date],
+			    HOUR
+			)
+		formatString: 0
+		lineageTag: 1a511579-47d4-47b2-8c98-893945a52396
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Carrier Hours' =
+			
+			DATEDIFF(
+			    fct_orders[order_delivered_carrier_date],
+			    fct_orders[order_delivered_customer_date],
+			    HOUR
+			)
+		formatString: 0
+		lineageTag: 35c68507-e226-4b61-8cea-00e8dc0988f2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_orders = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    sales_Schema = ecommerce_logistics_Database{[Name="sales",Kind="Schema"]}[Data],
+				    fct_orders_Table = sales_Schema{[Name="fct_orders",Kind="Table"]}[Data],
+				    fct_items_Table = sales_Schema{[Name="fct_items",Kind="Table"]}[Data],
+				    fct_items_OrderIds = Table.Distinct(Table.SelectColumns(fct_items_Table, {"order_id"})),
+				    #"Zmieniono typ kolumny" = Table.TransformColumnTypes(fct_orders_Table, {{"order_purchase_timestamp", type date}, {"order_approved_at", type date}, {"order_delivered_carrier_date", type date}, {"order_delivered_customer_date", type date}, {"order_estimated_delivery_date", type date}})
+				in
+				    #"Zmieniono typ kolumny"
+
+	annotation PBI_ResultType = Table
+

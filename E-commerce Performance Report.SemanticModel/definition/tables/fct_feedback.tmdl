@@ -1,0 +1,36 @@
+table fct_feedback
+	lineageTag: 8c13f66c-22b8-4dd2-acd7-1d43dd12b68f
+
+	column order_id
+		dataType: string
+		lineageTag: b78cc38e-c6de-44d3-ad2b-c342c934c31b
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_review_score
+		dataType: int64
+		lineageTag: 7f184393-02ac-4548-9e1c-0de2846875ee
+		summarizeBy: sum
+		sourceColumn: avg_review_score
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_feedback = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    feedback_Schema = ecommerce_logistics_Database{[Name="feedback",Kind="Schema"]}[Data],
+				    fct_feedback_Table = feedback_Schema{[Name="fct_feedback",Kind="Table"]}[Data]
+				in
+				    fct_feedback_Table
+
+	annotation PBI_ResultType = Table
+

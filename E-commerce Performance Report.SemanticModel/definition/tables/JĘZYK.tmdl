@@ -1,0 +1,21 @@
+table JĘZYK
+	lineageTag: 02744fd5-e8de-4398-83d9-c2d5ef1ba9d3
+
+	column 'Kolumna 1'
+		dataType: string
+		lineageTag: b9193e26-f31d-4d15-ae39-5e2b3d78ae4b
+		summarizeBy: none
+		sourceColumn: Kolumna 1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition JĘZYK = m
+		mode: import
+		source =
+				let
+				  Źródło = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcvVTitWJVgrwUYqNBQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Kolumna 1" = _t])
+				in
+				  Źródło
+
+	annotation PBI_ResultType = Table
+

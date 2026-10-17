@@ -1,0 +1,68 @@
+table 'Parametr Fracht'
+	lineageTag: cc072d2e-4453-49f0-ba75-83957c5ca5de
+
+	column 'Parametr Fracht'
+		lineageTag: cbb4c8b2-a15e-4a9d-8e3d-251c512489de
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Parametr Fracht'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Parametr Fracht'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Parametr Fracht'
+		isHidden
+		lineageTag: f390eba1-c084-404d-a27b-0757806bdd42
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Parametr Fracht'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Parametr Fracht'
+		isHidden
+		formatString: 0
+		lineageTag: 8a6933b7-a0f1-442c-8da3-bdbced9c4259
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		lineageTag: 2c0e1251-45ec-4813-898d-fcacb37845fc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametr Fracht' = calculated
+		mode: import
+		source =
+				{
+				    ("Średni koszt dostawy", NAMEOF('*Miary'[Avg Freight]), 0, "PL"),
+				    ("Avg Freight", NAMEOF('*Miary'[Avg Freight]), 0, "ENG"),
+				
+				    ("Średni koszt dostawy na produkt", NAMEOF('*Miary'[Avg Freight / Item]), 1, "PL"),
+				    ("Avg Freight / Item", NAMEOF('*Miary'[Avg Freight / Item]), 1, "ENG"),
+				
+				    ("Średni koszt dostawy na zamówienie", NAMEOF('*Miary'[Avg Freight / Order]), 2, "PL"),
+				    ("Avg Freight / Order", NAMEOF('*Miary'[Avg Freight / Order]), 2, "ENG"),
+				
+				    ("Koszt dostawy / Wartość produktów (%)", NAMEOF('*Miary'[Freight / Product Value %]), 3, "PL"),
+				    ("Freight / Product Value %", NAMEOF('*Miary'[Freight / Product Value %]), 3, "ENG"),
+				
+				    ("Łączny koszt dostawy", NAMEOF('*Miary'[Total Freight]), 4, "PL"),
+				    ("Total Freight", NAMEOF('*Miary'[Total Freight]), 4, "ENG")
+				}
+
+	annotation PBI_Id = a0b20b8d16b6404590d4c984c16033f7
+

@@ -1,0 +1,71 @@
+table 'Parametr Logistyka'
+	lineageTag: db387b94-c785-40a1-8f36-b193986c7606
+
+	column 'Parametr Logistyka'
+		lineageTag: 8b443418-dc58-435b-a95e-6aad62afaa8e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Parametr Logistyka'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Parametr Logistyka'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Parametr Logistyka'
+		isHidden
+		lineageTag: 1e86a504-4bb9-4249-bfd4-0e477d578909
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Parametr Logistyka'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Parametr Logistyka'
+		isHidden
+		formatString: 0
+		lineageTag: b53f1f92-438f-48c1-8c46-d1c1689a6690
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		lineageTag: 52e1be85-ea06-4f28-9bc8-261bce96914d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametr Logistyka' = calculated
+		mode: import
+		source =
+				{
+				    ("Avg Total Delivery Time", NAMEOF('*Miary'[Avg Total Delivery Time]), 0, "EN"),
+				    ("Średni czas dostawy", NAMEOF('*Miary'[Avg Total Delivery Time]), 0, "PL"),
+				
+				    ("Delivered Orders", NAMEOF('*Miary'[Delivered Orders]), 1, "EN"),
+				    ("Dostarczone zamówienia", NAMEOF('*Miary'[Delivered Orders]), 1, "PL"),
+				
+				    ("Delivery Rate", NAMEOF('*Miary'[Delivery Rate]), 2, "EN"),
+				    ("Wskaźnik dostarczeń", NAMEOF('*Miary'[Delivery Rate]), 2, "PL"),
+				
+				    ("On-Time", NAMEOF('*Miary'[On-Time]), 3, "EN"),
+				    ("Dostarczone na czas", NAMEOF('*Miary'[On-Time]), 3, "PL"),
+				
+				    ("On-Time %", NAMEOF('*Miary'[On-Time %]), 4, "EN"),
+				    ("Dostawy na czas [%]", NAMEOF('*Miary'[On-Time %]), 4, "PL"),
+				
+				    ("Total Orders", NAMEOF('*Miary'[Total Orders]), 5, "EN"),
+				    ("Wszystkie zamówienia", NAMEOF('*Miary'[Total Orders]), 5, "PL")
+				}
+
+	annotation PBI_Id = df1e94bb5447418cbccd010452efebc7
+

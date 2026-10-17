@@ -1,0 +1,120 @@
+table dim_measures
+	lineageTag: 1e24a525-3860-4ae5-8c19-2c57e3c987f0
+
+	column 'Numer obszaru'
+		dataType: int64
+		formatString: 0
+		lineageTag: c84c48a5-7067-4f6d-8c69-21b1ec865b84
+		summarizeBy: sum
+		sourceColumn: Numer obszaru
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nr miary'
+		dataType: int64
+		formatString: 0
+		lineageTag: 326eaabd-dfb5-43b5-bd22-3e2a8dd211dc
+		summarizeBy: sum
+		sourceColumn: Nr miary
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nazwa miary PL'
+		dataType: string
+		lineageTag: 0b98a8d1-5872-4ef1-b813-944608f05b2c
+		summarizeBy: none
+		sourceColumn: Nazwa miary PL
+		sortByColumn: 'Nr miary'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nazwa miary EN'
+		dataType: string
+		lineageTag: 55e623d9-ee93-4d21-b1bc-0aaa987b9497
+		summarizeBy: none
+		sourceColumn: Nazwa miary EN
+		sortByColumn: 'Nr miary'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Opis sekcji PL'
+		dataType: string
+		lineageTag: e4bdf199-5a11-4de4-9bb0-518f2c4377db
+		summarizeBy: none
+		sourceColumn: Opis sekcji PL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Opis sekcji EN'
+		dataType: string
+		lineageTag: 16f5d1e0-b217-47c3-8012-a4be697b32de
+		summarizeBy: none
+		sourceColumn: Opis sekcji EN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Opis miary PL'
+		dataType: string
+		lineageTag: e68ee1a7-e872-40f0-b214-1a69337c4d8a
+		summarizeBy: none
+		sourceColumn: Opis miary PL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Opis miary EN'
+		dataType: string
+		lineageTag: 63831b3a-5c70-4cf8-84a3-01b9023e2403
+		summarizeBy: none
+		sourceColumn: Opis miary EN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Format
+		dataType: string
+		lineageTag: e3014aac-b838-4266-8781-1ed43ed0788f
+		summarizeBy: none
+		sourceColumn: Format
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kierunek KPI'
+		dataType: string
+		lineageTag: 35199978-a049-4238-a0d0-9c212526701a
+		summarizeBy: none
+		sourceColumn: Kierunek KPI
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolor przy wzroście'
+		dataType: string
+		lineageTag: fe4599e0-1354-4407-bbe4-7198a7f6bb4a
+		summarizeBy: none
+		sourceColumn: Kolor przy wzroście
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolor przy spadku'
+		dataType: string
+		lineageTag: 87800322-8add-4fad-8dad-2d9a7f0c422d
+		summarizeBy: none
+		sourceColumn: Kolor przy spadku
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_measures = m
+		mode: import
+		source =
+				let
+				  Źródło = Excel.Workbook(File.Contents("C:\Users\hetna\Desktop\projekty\E-commerce Performance BI+DATABRICKS\miary_power_bi.xlsx"), null, true),
+				  Nawigacja = Źródło{[Item = "Miary", Kind = "Sheet"]}[Data],
+				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Nawigacja, [PromoteAllScalars = true]),
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"Nr miary", Int64.Type}, {"Numer obszaru", Int64.Type}, {"Nazwa miary PL", type text}, {"Nazwa miary EN", type text}, {"Opis sekcji PL", type text}, {"Opis sekcji EN", type text}, {"Opis miary PL", type text}, {"Opis miary EN", type text}, {"Format", type text}}, "pl")
+				in
+				  #"Zmieniono typ kolumny"
+
+	annotation PBI_ResultType = Table
+

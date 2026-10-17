@@ -1,0 +1,56 @@
+table dim_customers
+	lineageTag: d7942ad8-9c94-45c1-b597-56e69db2da3b
+
+	column customer_id
+		dataType: string
+		lineageTag: bdc10d4d-25fe-4a63-8701-b5a2c7fe9f99
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 1a8955bf-f7e8-43de-8b55-64806f49c2f9
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_zip_code_prefix
+		dataType: string
+		lineageTag: e6969168-7032-4b2b-94d3-984c2ba349c9
+		summarizeBy: none
+		sourceColumn: customer_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_city
+		dataType: string
+		lineageTag: 31f52b87-d58c-4758-af8b-132b909a5875
+		summarizeBy: none
+		sourceColumn: customer_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_state
+		dataType: string
+		lineageTag: 7d659cd4-288a-4f42-ac89-3f0a34acfec8
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customers = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    customers_Schema = ecommerce_logistics_Database{[Name="customers",Kind="Schema"]}[Data],
+				    dim_customers_Table = customers_Schema{[Name="dim_customers",Kind="Table"]}[Data]
+				in
+				    dim_customers_Table
+
+	annotation PBI_ResultType = Table
+

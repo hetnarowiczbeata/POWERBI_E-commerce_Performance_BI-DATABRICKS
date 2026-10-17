@@ -1,0 +1,72 @@
+table 'Grupa obliczania'
+	lineageTag: 30231244-18e6-4db9-9f61-f2a4323a64a5
+
+	calculationGroup
+
+		calculationItem AVG =
+				IF(
+				    ISSELECTEDMEASURE([Stage Time]),
+				    SWITCH(
+				        SELECTEDVALUE('Delivery Stages'[Stage]),
+				        "Approval", AVERAGE(fct_orders[Approval Hours]),
+				        "Preparation", AVERAGE(fct_orders[Preparation Hours]),
+				        "Carrier", AVERAGE(fct_orders[Carrier Hours])
+				    ),
+				    SELECTEDMEASURE()
+				)
+
+		calculationItem MIN =
+				IF(
+				    ISSELECTEDMEASURE([Stage Time]),
+				    SWITCH(
+				        SELECTEDVALUE('Delivery Stages'[Stage]),
+				        "Approval", MIN(fct_orders[Approval Hours]),
+				        "Preparation", MIN(fct_orders[Preparation Hours]),
+				        "Carrier", MIN(fct_orders[Carrier Hours])
+				    ),
+				    SELECTEDMEASURE()
+				)
+
+		calculationItem MAX =
+				IF(
+				    ISSELECTEDMEASURE([Stage Time]),
+				    SWITCH(
+				        SELECTEDVALUE('Delivery Stages'[Stage]),
+				        "Approval", MAX(fct_orders[Approval Hours]),
+				        "Preparation", MAX(fct_orders[Preparation Hours]),
+				        "Carrier", MAX(fct_orders[Carrier Hours])
+				    ),
+				    SELECTEDMEASURE()
+				)
+
+		calculationItem MEDIAN =
+				
+				IF(
+				    ISSELECTEDMEASURE([Stage Time]),
+				    SWITCH(
+				        SELECTEDVALUE('Delivery Stages'[Stage]),
+				        "Approval", MEDIAN(fct_orders[Approval Hours]),
+				        "Preparation", MEDIAN(fct_orders[Preparation Hours]),
+				        "Carrier", MEDIAN(fct_orders[Carrier Hours])
+				    ),
+				    SELECTEDMEASURE()
+				)
+
+	column 'Nazwa grupy obliczania'
+		dataType: string
+		lineageTag: ff0dda0f-bdc2-48cd-a616-764bb9174116
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: 'Liczba porządkowa'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Liczba porządkowa'
+		dataType: int64
+		formatString: 0
+		lineageTag: e5aa3069-a507-45fc-8e17-0a3246079ff8
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

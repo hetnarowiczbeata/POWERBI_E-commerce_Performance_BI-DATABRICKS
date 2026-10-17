@@ -1,0 +1,95 @@
+table dim_products
+	lineageTag: f1fe62d7-a792-4351-a2bb-e98d00a8ea80
+
+	column product_id
+		dataType: string
+		lineageTag: 769bc3c1-33f9-4e40-88fe-fa5bbe54d281
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name
+		dataType: string
+		lineageTag: ac53f3f0-6c92-4221-9d4b-5679f817eb9b
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name_length
+		dataType: int64
+		formatString: 0
+		lineageTag: 26b2f1a5-84c9-40db-a953-480adc792c71
+		summarizeBy: sum
+		sourceColumn: product_name_length
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_description_length
+		dataType: int64
+		formatString: 0
+		lineageTag: 3af45de5-f46e-4805-b736-c1a4a1d69b72
+		summarizeBy: sum
+		sourceColumn: product_description_length
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_photos_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 0789c581-565a-430f-be26-9fd22212a3bd
+		summarizeBy: sum
+		sourceColumn: product_photos_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_weight_g
+		dataType: int64
+		formatString: 0
+		lineageTag: bc31fdda-9402-44f7-a681-1d61dddb47af
+		summarizeBy: sum
+		sourceColumn: product_weight_g
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_length_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d05ddb1-a252-4dca-b54a-2e77885a5ed2
+		summarizeBy: sum
+		sourceColumn: product_length_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_height_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d411380-4711-4b3b-a7ed-f51b81fe0c1d
+		summarizeBy: sum
+		sourceColumn: product_height_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_width_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 253bebb5-64f3-49ab-b3d0-ec189fb5c5e2
+		summarizeBy: sum
+		sourceColumn: product_width_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_products = m
+		mode: import
+		source =
+				let
+				    Źródło = DatabricksMultiCloud.Catalogs("dbc-ad3d2eec-c3fb.cloud.databricks.com", "/sql/1.0/warehouses/1d74773b2a89990e", [Catalog="ecommerce_logistics", Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    ecommerce_logistics_Database = Źródło{[Name="ecommerce_logistics",Kind="Database"]}[Data],
+				    products_Schema = ecommerce_logistics_Database{[Name="products",Kind="Schema"]}[Data],
+				    dim_products_Table = products_Schema{[Name="dim_products",Kind="Table"]}[Data]
+				in
+				    dim_products_Table
+
+	annotation PBI_ResultType = Table
+

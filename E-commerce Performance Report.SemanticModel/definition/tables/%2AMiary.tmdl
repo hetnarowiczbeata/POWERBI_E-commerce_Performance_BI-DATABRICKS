@@ -1,7 +1,7 @@
 table *Miary
 	lineageTag: 3bb74a10-d035-4777-b086-07e785e255fa
 
-	measure 'Total Orders' = DISTINCTCOUNT(fct_orders[order_id])
+	measure 'Total Orders' = DISTINCTCOUNT(dim_orders[order_id])
 		formatString: 0
 		displayFolder: Logistics
 		lineageTag: 3c98ffae-15ca-4574-8b9e-c15e4e25aa19
@@ -66,18 +66,46 @@ table *Miary
 		displayFolder: Delivery Performance
 		lineageTag: e24b7528-f257-45c9-aed4-5596d5e7c647
 
-	measure 'Avg Review Score' = AVERAGE(fct_feedback[avg_review_score])
+	measure 'Avg Review Score' =
+			VAR ReviewOrderIds = CALCULATETABLE(VALUES(fct_orders[order_id]))
+			RETURN CALCULATE(AVERAGE(fct_feedback[avg_review_score]), TREATAS(ReviewOrderIds, fct_feedback[order_id]))
 		displayFolder: Delivery & Customer Experience
 		lineageTag: 0d79b55e-d1a4-4993-b0bd-c53f14b2ee46
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Review 1-2 %' = DIVIDE(CALCULATE(COUNTROWS(fct_feedback), fct_feedback[avg_review_score] <= 2), COUNT(fct_feedback[avg_review_score]))
+	measure 'Review 1-2 %' =
+			VAR ReviewOrderIds = CALCULATETABLE(VALUES(fct_orders[order_id]))
+			RETURN
+				DIVIDE(
+					CALCULATE(
+						COUNTROWS(fct_feedback),
+						TREATAS(ReviewOrderIds, fct_feedback[order_id]),
+						fct_feedback[avg_review_score] <= 2
+					),
+					CALCULATE(
+						COUNT(fct_feedback[avg_review_score]),
+						TREATAS(ReviewOrderIds, fct_feedback[order_id])
+					)
+			)
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Delivery & Customer Experience
 		lineageTag: bbd3f0dc-4d74-4780-aef5-2d45a4e83f1e
 
-	measure 'Review 4-5 %' = DIVIDE(CALCULATE(COUNTROWS(fct_feedback), fct_feedback[avg_review_score] >= 4), COUNT(fct_feedback[avg_review_score]))
+	measure 'Review 4-5 %' =
+			VAR ReviewOrderIds = CALCULATETABLE(VALUES(fct_orders[order_id]))
+			RETURN
+				DIVIDE(
+					CALCULATE(
+						COUNTROWS(fct_feedback),
+						TREATAS(ReviewOrderIds, fct_feedback[order_id]),
+						fct_feedback[avg_review_score] >= 4
+					),
+					CALCULATE(
+						COUNT(fct_feedback[avg_review_score]),
+						TREATAS(ReviewOrderIds, fct_feedback[order_id])
+					)
+			)
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Delivery & Customer Experience
 		lineageTag: 74f6eb3d-b111-43b6-b4d9-a9d4036d4f19
@@ -98,33 +126,49 @@ table *Miary
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Total Freight' = SUM(fct_items[freight_value])
-		displayFolder: Freight & Product Logistics
+	measure 'Total Freight' =
+			VAR OrderIds = VALUES(fct_orders[order_id])
+			RETURN
+				CALCULATE(
+					SUM(fct_items[freight_value]),
+					KEEPFILTERS(TREATAS(OrderIds, fct_items[order_id]))
+				)
+		displayFolder: Freight Logistics
 		lineageTag: 417ec0d8-e52a-4f89-bf35-4811ec8cb6c9
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Freight' = AVERAGE(fct_items[freight_value])
-		displayFolder: Freight & Product Logistics
+	measure 'Avg Freight' = ```
+			
+					AVERAGE(fct_items[freight_value])
+			
+			```
+		displayFolder: Freight Logistics
 		lineageTag: c4846d8c-7f98-40b7-a1b5-a5c18d82c1f7
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Freight / Order' = DIVIDE([Total Freight], [Orders])
-		displayFolder: Freight & Product Logistics
+	measure 'Avg Freight / Order' =
+			VAR OrderIds = VALUES(fct_orders[order_id])
+			RETURN
+				CALCULATE(
+					DIVIDE([Total Freight], [Orders]),
+					KEEPFILTERS(TREATAS(OrderIds, fct_items[order_id]))
+				)
+		displayFolder: Freight Logistics
 		lineageTag: 57cc64ad-9813-4c21-9d8d-c062f0f09358
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Freight / Item' = DIVIDE([Total Freight], COUNTROWS(fct_items))
-		displayFolder: Freight & Product Logistics
-		lineageTag: 7dc0c12f-ba5c-44c8-8c7e-8c2b90f909aa
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Freight / Product Value %' = DIVIDE([Total Freight], SUM(fct_items[price]))
+	measure 'Freight / Product Value %' =
+			VAR OrderIds = VALUES(fct_orders[order_id])
+			RETURN
+				CALCULATE(
+					DIVIDE([Total Freight], SUM(fct_items[price])),
+					KEEPFILTERS(TREATAS(OrderIds, fct_items[order_id]))
+				)
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Freight & Product Logistics
+		displayFolder: Freight Logistics
 		lineageTag: 44c2c38d-a01b-444c-8572-0cecfafdb3aa
 
 	measure 'Wszystkie miary' =
@@ -149,7 +193,7 @@ table *Miary
 			    15, [Items],
 			    16, [Avg Freight],
 			    17, [Avg Review Score],
-			    18, [Avg Freight / Item],
+			    //18, [Avg Freight / Item],
 			    19, [Freight / Product Value %],
 			    20, [Review 1-2 %],
 			    21, [Review 4-5 %],
@@ -196,12 +240,12 @@ table *Miary
 
 	measure Items = COUNTROWS(fct_items)
 		formatString: 0
-		displayFolder: Seller Performance
+		displayFolder: Sellers & Products
 		lineageTag: be1a2cd1-0f57-408f-9c2e-2dff564b7127
 
 	measure Orders = DISTINCTCOUNT(fct_items[order_id])
 		formatString: 0
-		displayFolder: Seller Performance
+		displayFolder: Sellers & Products
 		lineageTag: b651fbad-b078-4a27-aa9e-7d4bed87a1c4
 
 	measure PY =
@@ -295,23 +339,23 @@ table *Miary
 
 	measure 'Total Sellers' = DISTINCTCOUNT(dim_sellers[seller_id])
 		formatString: 0
-		displayFolder: Seller Performance
+		displayFolder: Sellers & Products
 		lineageTag: df790709-e7c4-4321-be48-62e63baf3765
 
 	/// Gross product sales from item prices; seller-filterable and excludes freight and payment adjustments.
 	measure 'Total Revenue' = SUM(fct_items[price])
 		formatString: #,0
-		displayFolder: Seller Performance
+		displayFolder: Sellers & Products
 		lineageTag: b255eed3-bc8f-41b2-b5f8-dfe3b4873c58
 
 	measure 'Avg Revenue per Seller' = DIVIDE([Total Revenue], [Total Sellers])
 		formatString: #,0.00
-		displayFolder: Seller Performance
+		displayFolder: Sellers & Products
 		lineageTag: d67a285f-21c1-4c44-af90-5faf57ef61bf
 
 	measure 'Avg Order Value' = DIVIDE([Total Revenue], [Orders])
 		formatString: #,0.00
-		displayFolder: Seller Performance
+		displayFolder: Sellers & Products
 		lineageTag: 13cf87f0-6ee3-4029-969b-de591c43594a
 
 	measure 'Tytuł filtra okresu' =
@@ -397,6 +441,98 @@ table *Miary
 		lineageTag: 8f020b1e-f20c-4365-aff4-405252c706f0
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top 5 Sellers Revenue' =
+			VAR CurrentSeller = SELECTEDVALUE(dim_sellers[seller_id])
+			VAR RankedSellers =
+				TOPN(
+					5,
+					FILTER(
+						ALLSELECTED(dim_sellers[seller_id]),
+						NOT ISBLANK(dim_sellers[seller_id])
+							&& NOT ISBLANK(CALCULATE([Total Revenue]))
+					),
+					CALCULATE([Total Revenue]), DESC,
+					dim_sellers[seller_id], ASC
+				)
+			RETURN
+				IF(
+					ISINSCOPE(dim_sellers[seller_id])
+						&& CONTAINS(RankedSellers, dim_sellers[seller_id], CurrentSeller),
+					[Total Revenue]
+				)
+		formatString: #,0
+		displayFolder: Sellers & Products
+		lineageTag: 47e79d69-150e-44da-89f8-d012f92a4c81
+
+	measure 'Bottom 5 Sellers Revenue' =
+			VAR CurrentSeller = SELECTEDVALUE(dim_sellers[seller_id])
+			VAR RankedSellers =
+				TOPN(
+					5,
+					FILTER(
+						ALLSELECTED(dim_sellers[seller_id]),
+						NOT ISBLANK(dim_sellers[seller_id])
+							&& NOT ISBLANK(CALCULATE([Total Revenue]))
+					),
+					CALCULATE([Total Revenue]), ASC,
+					dim_sellers[seller_id], ASC
+				)
+			RETURN
+				IF(
+					ISINSCOPE(dim_sellers[seller_id])
+						&& CONTAINS(RankedSellers, dim_sellers[seller_id], CurrentSeller),
+					[Total Revenue]
+				)
+		formatString: #,0
+		displayFolder: Sellers & Products
+		lineageTag: d7bb4085-8dce-4f6f-ab98-81a36d9dd50f
+
+	measure 'Top 5 Product Categories Revenue' =
+			VAR CurrentCategory = SELECTEDVALUE(dim_category[product_category_name_english])
+			VAR RankedCategories =
+				TOPN(
+					5,
+					FILTER(
+						ALLSELECTED(dim_category[product_category_name_english]),
+						NOT ISBLANK(dim_category[product_category_name_english])
+							&& NOT ISBLANK(CALCULATE([Total Revenue]))
+					),
+					CALCULATE([Total Revenue]), DESC,
+					dim_category[product_category_name_english], ASC
+				)
+			RETURN
+				IF(
+					ISINSCOPE(dim_category[product_category_name_english])
+						&& CONTAINS(RankedCategories, dim_category[product_category_name_english], CurrentCategory),
+					[Total Revenue]
+				)
+		formatString: #,0
+		displayFolder: Sellers & Products
+		lineageTag: eda2acda-0b37-4518-a0a5-a85603f4205e
+
+	measure 'Bottom 5 Product Categories Revenue' =
+			VAR CurrentCategory = SELECTEDVALUE(dim_category[product_category_name_english])
+			VAR RankedCategories =
+				TOPN(
+					5,
+					FILTER(
+						ALLSELECTED(dim_category[product_category_name_english]),
+						NOT ISBLANK(dim_category[product_category_name_english])
+							&& NOT ISBLANK(CALCULATE([Total Revenue]))
+					),
+					CALCULATE([Total Revenue]), ASC,
+					dim_category[product_category_name_english], ASC
+				)
+			RETURN
+				IF(
+					ISINSCOPE(dim_category[product_category_name_english])
+						&& CONTAINS(RankedCategories, dim_category[product_category_name_english], CurrentCategory),
+					[Total Revenue]
+				)
+		formatString: #,0
+		displayFolder: Sellers & Products
+		lineageTag: 7a28db22-5fd9-4c15-b67f-06726ad54417
 
 	column 'Kolumna 1'
 		dataType: string

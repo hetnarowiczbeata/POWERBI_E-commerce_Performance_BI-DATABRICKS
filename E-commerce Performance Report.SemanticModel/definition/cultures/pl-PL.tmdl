@@ -10779,16 +10779,6 @@ cultureInfo pl-PL
 			            },
 			            "Weight": 0.739
 			          }
-			        },
-			        {
-			          "Dostarczone na czas": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -11406,16 +11396,6 @@ cultureInfo pl-PL
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "Opóźnienia [%]": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -12133,6 +12113,16 @@ cultureInfo pl-PL
 			            },
 			            "Weight": 0.461
 			          }
+			        },
+			        {
+			          "Średni koszt dostawy": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -12261,133 +12251,15 @@ cultureInfo pl-PL
 			            },
 			            "Weight": 0.499
 			          }
-			        }
-			      ]
-			    },
-			    "miary.avg_freight___item": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "*Miary",
-			          "ConceptualProperty": "Avg Freight / Item"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "avg freight / item": {
-			            "State": "Generated"
-			          }
 			        },
 			        {
-			          "avg freight item": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "item": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "avg freight / product": {
-			            "Type": "Noun",
+			          "Średni koszt dostawy na zamówienie": {
 			            "State": "Suggested",
 			            "Source": {
-			              "Agent": "Thesaurus"
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
 			            },
-			            "Weight": 0.771
-			          }
-			        },
-			        {
-			          "avg freight / element": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.771
-			          }
-			        },
-			        {
-			          "avg freight / entry": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.771
-			          }
-			        },
-			        {
-			          "avg freight product": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.762
-			          }
-			        },
-			        {
-			          "avg freight element": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.762
-			          }
-			        },
-			        {
-			          "avg freight entry": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.762
-			          }
-			        },
-			        {
-			          "avg freight / article": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.748
-			          }
-			        },
-			        {
-			          "avg freight / object": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.748
-			          }
-			        },
-			        {
-			          "avg freight / piece": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.748
-			          }
-			        },
-			        {
-			          "avg freight / token": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.748
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -12522,6 +12394,16 @@ cultureInfo pl-PL
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "Koszt dostawy / Wartość produktów (%)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14090,16 +13972,6 @@ cultureInfo pl-PL
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "Rok-Miesiąc": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        },
 			        {
@@ -16798,9 +16670,1140 @@ cultureInfo pl-PL
 			          }
 			        }
 			      ]
+			    },
+			    "miary.top_5_sellers_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "*Miary",
+			          "ConceptualProperty": "Top 5 Sellers Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Top 5 Revenue Leaders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "miary.bottom_5_sellers_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "*Miary",
+			          "ConceptualProperty": "Bottom 5 Sellers Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bottom 5 by Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fct_item_shipping_limit_date_has_hierarchia_dat": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_items"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_item.shipping_limit_date": {
+			          "Target": {
+			            "Entity": "fct_item.shipping_limit_date"
+			          }
+			        },
+			        "fct_item.shipping_limit_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_item.shipping_limit_date.hierarchia_dat"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_item.shipping_limit_date"
+			            },
+			            "Object": {
+			              "Role": "fct_item.shipping_limit_date.hierarchia_dat"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "shipping_limit_dates_have_hierarchia_dat"
+			        }
+			      ]
+			    },
+			    "fct_order_order_estimated_delivery_date_miesiąc_has_fct_order_order_estimated_delivery_date_dzień": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_estimated_delivery_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.miesiąc"
+			          }
+			        },
+			        "fct_order.order_estimated_delivery_date.dzień": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.dzień"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.dzień"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_have_dzień"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.dzień"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dzień_have_miesiącs"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.dzień"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dzień_are_in_miesiącs3"
+			        }
+			      ]
+			    },
+			    "fct_order_order_estimated_delivery_date_kwartał_has_fct_order_order_estimated_delivery_date_miesiąc": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_estimated_delivery_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.kwartał"
+			          }
+			        },
+			        "fct_order.order_estimated_delivery_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.miesiąc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_have_miesiącs"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_have_kwartał"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_are_in_kwartał3"
+			        }
+			      ]
+			    },
+			    "fct_order_order_estimated_delivery_date_rok_has_fct_order_order_estimated_delivery_date_kwartał": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_estimated_delivery_date.rok": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.rok"
+			          }
+			        },
+			        "fct_order.order_estimated_delivery_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.kwartał"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.rok"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "roks_have_kwartał"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_have_roks"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_are_in_roks3"
+			        }
+			      ]
+			    },
+			    "fct_order_order_estimated_delivery_date_hierarchia_dat_has_fct_order_order_estimated_delivery_date_dzień": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_estimated_delivery_date.dzień": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.dzień"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.dzień"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_dzień"
+			        }
+			      ]
+			    },
+			    "fct_order_order_estimated_delivery_date_hierarchia_dat_has_fct_order_order_estimated_delivery_date_miesiąc": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_estimated_delivery_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.miesiąc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_miesiącs"
+			        }
+			      ]
+			    },
+			    "fct_order_order_estimated_delivery_date_hierarchia_dat_has_fct_order_order_estimated_delivery_date_kwartał": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_estimated_delivery_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.kwartał"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_kwartał"
+			        }
+			      ]
+			    },
+			    "fct_order_order_estimated_delivery_date_hierarchia_dat_has_fct_order_order_estimated_delivery_date_rok": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_estimated_delivery_date.rok": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.rok"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_roks"
+			        }
+			      ]
+			    },
+			    "fct_order_order_estimated_delivery_date_has_hierarchia_dat": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_estimated_delivery_date": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date"
+			          }
+			        },
+			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_estimated_delivery_date"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "order_estimated_delivery_dates_have_hierarchia_dat"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_customer_date_miesiąc_has_fct_order_order_delivered_customer_date_dzień": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_customer_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.miesiąc"
+			          }
+			        },
+			        "fct_order.order_delivered_customer_date.dzień": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.dzień"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.dzień"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_have_dzień1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.dzień"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dzień_have_miesiącs1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.dzień"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dzień_are_in_miesiącs2"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_customer_date_kwartał_has_fct_order_order_delivered_customer_date_miesiąc": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_customer_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.kwartał"
+			          }
+			        },
+			        "fct_order.order_delivered_customer_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.miesiąc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.kwartał"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_have_miesiącs1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_have_kwartał1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_are_in_kwartał2"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_customer_date_rok_has_fct_order_order_delivered_customer_date_kwartał": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_customer_date.rok": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.rok"
+			          }
+			        },
+			        "fct_order.order_delivered_customer_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.kwartał"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.rok"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "roks_have_kwartał1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.kwartał"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_have_roks1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.kwartał"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_are_in_roks2"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_customer_date_hierarchia_dat_has_fct_order_order_delivered_customer_date_dzień": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_delivered_customer_date.dzień": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.dzień"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.dzień"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_dzień1"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_customer_date_hierarchia_dat_has_fct_order_order_delivered_customer_date_miesiąc": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_delivered_customer_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.miesiąc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_miesiącs1"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_customer_date_hierarchia_dat_has_fct_order_order_delivered_customer_date_kwartał": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_delivered_customer_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.kwartał"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_kwartał1"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_customer_date_hierarchia_dat_has_fct_order_order_delivered_customer_date_rok": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_delivered_customer_date.rok": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.rok"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_roks1"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_customer_date_has_hierarchia_dat": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_customer_date": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date"
+			          }
+			        },
+			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_customer_date"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "order_delivered_customer_dates_have_hierarchia_dat"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_carrier_date_miesiąc_has_fct_order_order_delivered_carrier_date_dzień": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_carrier_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.miesiąc"
+			          }
+			        },
+			        "fct_order.order_delivered_carrier_date.dzień": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.dzień"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.dzień"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_have_dzień2"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.dzień"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dzień_have_miesiącs2"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.dzień"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dzień_are_in_miesiącs1"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_carrier_date_kwartał_has_fct_order_order_delivered_carrier_date_miesiąc": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_carrier_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.kwartał"
+			          }
+			        },
+			        "fct_order.order_delivered_carrier_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.miesiąc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_have_miesiącs2"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_have_kwartał2"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "miesiącs_are_in_kwartał1"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_carrier_date_rok_has_fct_order_order_delivered_carrier_date_kwartał": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_carrier_date.rok": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.rok"
+			          }
+			        },
+			        "fct_order.order_delivered_carrier_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.kwartał"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.rok"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "roks_have_kwartał2"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_have_roks2"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "kwartał_are_in_roks1"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_carrier_date_hierarchia_dat_has_fct_order_order_delivered_carrier_date_dzień": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_carrier_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_delivered_carrier_date.dzień": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.dzień"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.dzień"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_dzień2"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_carrier_date_hierarchia_dat_has_fct_order_order_delivered_carrier_date_miesiąc": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_carrier_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_delivered_carrier_date.miesiąc": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.miesiąc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_miesiącs2"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_carrier_date_hierarchia_dat_has_fct_order_order_delivered_carrier_date_kwartał": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_carrier_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_delivered_carrier_date.kwartał": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.kwartał"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_kwartał2"
+			        }
+			      ]
+			    },
+			    "fct_order_order_delivered_carrier_date_hierarchia_dat_has_fct_order_order_delivered_carrier_date_rok": {
+			      "Binding": {
+			        "ConceptualEntity": "fct_orders"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fct_order.order_delivered_carrier_date.hierarchia_dat": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.hierarchia_dat"
+			          }
+			        },
+			        "fct_order.order_delivered_carrier_date.rok": {
+			          "Target": {
+			            "Entity": "fct_order.order_delivered_carrier_date.rok"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fct_order.order_delivered_carrier_date.hierarchia_dat"
+			            },
+			            "Object": {
+			              "Role": "fct_order.order_delivered_carrier_date.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarchia_dat_have_roks2"
+			        }
+			      ]
+			    },
 			    "fct_order_order_delivered_carrier_date_has_hierarchia_dat": {
 			      "Binding": {
 			        "ConceptualEntity": "fct_orders"
@@ -16863,7 +17866,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "miesiącs_have_dzień"
+			          "ID": "miesiącs_have_dzień3"
 			        },
 			        {
 			          "Attribute": {
@@ -16876,7 +17879,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dzień_have_miesiącs"
+			          "ID": "dzień_have_miesiącs3"
 			        },
 			        {
 			          "Preposition": {
@@ -16929,7 +17932,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "kwartał_have_miesiącs"
+			          "ID": "kwartał_have_miesiącs3"
 			        },
 			        {
 			          "Attribute": {
@@ -16942,7 +17945,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "miesiącs_have_kwartał"
+			          "ID": "miesiącs_have_kwartał3"
 			        },
 			        {
 			          "Preposition": {
@@ -16995,7 +17998,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "roks_have_kwartał"
+			          "ID": "roks_have_kwartał3"
 			        },
 			        {
 			          "Attribute": {
@@ -17008,7 +18011,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "kwartał_have_roks"
+			          "ID": "kwartał_have_roks3"
 			        },
 			        {
 			          "Preposition": {
@@ -17061,7 +18064,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_dzień"
+			          "ID": "hierarchia_dat_have_dzień3"
 			        }
 			      ]
 			    },
@@ -17094,7 +18097,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_miesiącs"
+			          "ID": "hierarchia_dat_have_miesiącs3"
 			        }
 			      ]
 			    },
@@ -17127,7 +18130,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_kwartał"
+			          "ID": "hierarchia_dat_have_kwartał3"
 			        }
 			      ]
 			    },
@@ -17160,7 +18163,7 @@ cultureInfo pl-PL
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_roks"
+			          "ID": "hierarchia_dat_have_roks3"
 			        }
 			      ]
 			    },
@@ -24211,1095 +25214,6 @@ cultureInfo pl-PL
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "fct_orders_are_approved_on_order_approved_at"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_carrier_date_hierarchia_dat_has_fct_order_order_delivered_carrier_date_rok": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_carrier_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_delivered_carrier_date.rok": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.rok"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_roks1"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_carrier_date_hierarchia_dat_has_fct_order_order_delivered_carrier_date_kwartał": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_carrier_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_delivered_carrier_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.kwartał"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_kwartał1"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_carrier_date_hierarchia_dat_has_fct_order_order_delivered_carrier_date_miesiąc": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_carrier_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_delivered_carrier_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.miesiąc"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_miesiącs1"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_carrier_date_hierarchia_dat_has_fct_order_order_delivered_carrier_date_dzień": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_carrier_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_delivered_carrier_date.dzień": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.dzień"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.dzień"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_dzień1"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_carrier_date_rok_has_fct_order_order_delivered_carrier_date_kwartał": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_carrier_date.rok": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.rok"
-			          }
-			        },
-			        "fct_order.order_delivered_carrier_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.kwartał"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.rok"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "roks_have_kwartał1"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_have_roks1"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_are_in_roks1"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_carrier_date_kwartał_has_fct_order_order_delivered_carrier_date_miesiąc": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_carrier_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.kwartał"
-			          }
-			        },
-			        "fct_order.order_delivered_carrier_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.miesiąc"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_have_miesiącs1"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_have_kwartał1"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_are_in_kwartał1"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_carrier_date_miesiąc_has_fct_order_order_delivered_carrier_date_dzień": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_carrier_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.miesiąc"
-			          }
-			        },
-			        "fct_order.order_delivered_carrier_date.dzień": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_carrier_date.dzień"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.dzień"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_have_dzień1"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.dzień"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dzień_have_miesiącs1"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_carrier_date.dzień"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_delivered_carrier_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dzień_are_in_miesiącs1"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_customer_date_has_hierarchia_dat": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_customer_date": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date"
-			          }
-			        },
-			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "order_delivered_customer_dates_have_hierarchia_dat"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_customer_date_hierarchia_dat_has_fct_order_order_delivered_customer_date_rok": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_delivered_customer_date.rok": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.rok"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_roks2"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_customer_date_hierarchia_dat_has_fct_order_order_delivered_customer_date_kwartał": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_delivered_customer_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.kwartał"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_kwartał2"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_customer_date_hierarchia_dat_has_fct_order_order_delivered_customer_date_miesiąc": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_delivered_customer_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.miesiąc"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_miesiącs2"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_customer_date_hierarchia_dat_has_fct_order_order_delivered_customer_date_dzień": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_customer_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_delivered_customer_date.dzień": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.dzień"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.dzień"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_dzień2"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_customer_date_rok_has_fct_order_order_delivered_customer_date_kwartał": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_customer_date.rok": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.rok"
-			          }
-			        },
-			        "fct_order.order_delivered_customer_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.kwartał"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.rok"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "roks_have_kwartał2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.kwartał"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_have_roks2"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.kwartał"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_are_in_roks2"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_customer_date_kwartał_has_fct_order_order_delivered_customer_date_miesiąc": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_customer_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.kwartał"
-			          }
-			        },
-			        "fct_order.order_delivered_customer_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.miesiąc"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.kwartał"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_have_miesiącs2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_have_kwartał2"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_are_in_kwartał2"
-			        }
-			      ]
-			    },
-			    "fct_order_order_delivered_customer_date_miesiąc_has_fct_order_order_delivered_customer_date_dzień": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_delivered_customer_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.miesiąc"
-			          }
-			        },
-			        "fct_order.order_delivered_customer_date.dzień": {
-			          "Target": {
-			            "Entity": "fct_order.order_delivered_customer_date.dzień"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.dzień"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_have_dzień2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.dzień"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dzień_have_miesiącs2"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_delivered_customer_date.dzień"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_delivered_customer_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dzień_are_in_miesiącs2"
-			        }
-			      ]
-			    },
-			    "fct_order_order_estimated_delivery_date_has_hierarchia_dat": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_estimated_delivery_date": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date"
-			          }
-			        },
-			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "order_estimated_delivery_dates_have_hierarchia_dat"
-			        }
-			      ]
-			    },
-			    "fct_order_order_estimated_delivery_date_hierarchia_dat_has_fct_order_order_estimated_delivery_date_rok": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_estimated_delivery_date.rok": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.rok"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_roks3"
-			        }
-			      ]
-			    },
-			    "fct_order_order_estimated_delivery_date_hierarchia_dat_has_fct_order_order_estimated_delivery_date_kwartał": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_estimated_delivery_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.kwartał"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_kwartał3"
-			        }
-			      ]
-			    },
-			    "fct_order_order_estimated_delivery_date_hierarchia_dat_has_fct_order_order_estimated_delivery_date_miesiąc": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_estimated_delivery_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.miesiąc"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_miesiącs3"
-			        }
-			      ]
-			    },
-			    "fct_order_order_estimated_delivery_date_hierarchia_dat_has_fct_order_order_estimated_delivery_date_dzień": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_estimated_delivery_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			          }
-			        },
-			        "fct_order.order_estimated_delivery_date.dzień": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.dzień"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.hierarchia_dat"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.dzień"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarchia_dat_have_dzień3"
-			        }
-			      ]
-			    },
-			    "fct_order_order_estimated_delivery_date_rok_has_fct_order_order_estimated_delivery_date_kwartał": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_estimated_delivery_date.rok": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.rok"
-			          }
-			        },
-			        "fct_order.order_estimated_delivery_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.kwartał"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.rok"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "roks_have_kwartał3"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_have_roks3"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.rok"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_are_in_roks3"
-			        }
-			      ]
-			    },
-			    "fct_order_order_estimated_delivery_date_kwartał_has_fct_order_order_estimated_delivery_date_miesiąc": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_estimated_delivery_date.kwartał": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.kwartał"
-			          }
-			        },
-			        "fct_order.order_estimated_delivery_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.miesiąc"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "kwartał_have_miesiącs3"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_have_kwartał3"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.kwartał"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_are_in_kwartał3"
-			        }
-			      ]
-			    },
-			    "fct_order_order_estimated_delivery_date_miesiąc_has_fct_order_order_estimated_delivery_date_dzień": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_orders"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_order.order_estimated_delivery_date.miesiąc": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.miesiąc"
-			          }
-			        },
-			        "fct_order.order_estimated_delivery_date.dzień": {
-			          "Target": {
-			            "Entity": "fct_order.order_estimated_delivery_date.dzień"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.dzień"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "miesiącs_have_dzień3"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.dzień"
-			            },
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dzień_have_miesiącs3"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fct_order.order_estimated_delivery_date.dzień"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fct_order.order_estimated_delivery_date.miesiąc"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dzień_are_in_miesiącs3"
-			        }
-			      ]
-			    },
-			    "fct_item_shipping_limit_date_has_hierarchia_dat": {
-			      "Binding": {
-			        "ConceptualEntity": "fct_items"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fct_item.shipping_limit_date": {
-			          "Target": {
-			            "Entity": "fct_item.shipping_limit_date"
-			          }
-			        },
-			        "fct_item.shipping_limit_date.hierarchia_dat": {
-			          "Target": {
-			            "Entity": "fct_item.shipping_limit_date.hierarchia_dat"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fct_item.shipping_limit_date"
-			            },
-			            "Object": {
-			              "Role": "fct_item.shipping_limit_date.hierarchia_dat"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "shipping_limit_dates_have_hierarchia_dat"
 			        }
 			      ]
 			    },

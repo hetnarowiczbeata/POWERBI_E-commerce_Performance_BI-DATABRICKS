@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "571e15475e74837626ec",
+  "position": {
+    "x": 446,
+    "y": 252,
+    "z": 0,
+    "height": 714,
+    "width": 1098,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Top 5 Sellers Revenue"
+                }
+              },
+              "queryRef": "*Miary.Top 5 Sellers Revenue",
+              "nativeQueryRef": "Top 5 Sellers Revenue"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_sellers"
+                    }
+                  },
+                  "Property": "seller_id"
+                }
+              },
+              "queryRef": "dim_sellers.seller_id",
+              "nativeQueryRef": "seller_id"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e35e688016515aa915f6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "*Miary"
+              }
+            },
+            "Property": "Top 5 Sellers Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "83c7d340fba79db44058",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_sellers"
+              }
+            },
+            "Property": "seller_id"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

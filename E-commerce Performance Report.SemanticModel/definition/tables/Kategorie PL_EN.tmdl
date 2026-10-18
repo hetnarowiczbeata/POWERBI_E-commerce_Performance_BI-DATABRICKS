@@ -1,0 +1,36 @@
+table 'Kategorie PL_EN'
+	lineageTag: 5ad0fbe4-6040-4362-8ae5-c2532dd3b9f9
+
+	column PL/EN
+		lineageTag: a3bfd7b1-11e3-4f29-9cec-f06247bd2764
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PL/EN]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kategoria
+		lineageTag: b7077a35-1ea0-4e65-a741-3c7be37eca03
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Kategoria]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kategorie PL_EN' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "PL/EN", STRING,
+				    "Kategoria", STRING,
+				    {
+				        {"PL", "Sprzedawcy"},
+				        {"PL", "Produkty"},
+				        {"EN", "Sellers"},
+				        {"EN", "Products"}
+				    }
+				)
+
+	annotation PBI_Id = cf2715200da5439489163e6677c0e4be
+

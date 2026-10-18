@@ -1,0 +1,18 @@
+table 'Delivery Status'
+	lineageTag: 734a9189-0c60-4e2f-ab8a-d263444d7d51
+
+	column is_delivered
+		formatString: 0
+		lineageTag: c0549fb2-645b-4d3e-9e55-2ba16b1cbc77
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dim_orders[is_delivered]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Delivery Status' = calculated
+		mode: import
+		source = DISTINCT(dim_orders[is_delivered])
+
+	annotation PBI_Id = b59ab1d5fffc48b1a5d717e06ca99055
+

@@ -42,12 +42,12 @@
                       "Entity": "*Miary"
                     }
                   },
-                  "Property": "On-Time"
+                  "Property": "On-Time %"
                 }
               },
-              "queryRef": "*Miary.On-Time",
-              "nativeQueryRef": "Dostarczone na czas",
-              "displayName": "Dostarczone na czas"
+              "queryRef": "*Miary.On-Time %",
+              "nativeQueryRef": "On-Time %",
+              "displayName": "On-Time %"
             }
           ],
           "fieldParameters": [
@@ -78,7 +78,7 @@
                     "Entity": "*Miary"
                   }
                 },
-                "Property": "On-Time"
+                "Property": "On-Time %"
               }
             },
             "direction": "Descending"

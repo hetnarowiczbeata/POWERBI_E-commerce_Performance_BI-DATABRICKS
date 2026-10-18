@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "27a1930f2cc6bb85159e",
+  "position": {
+    "x": 1583.3333333333335,
+    "y": 283.33333333333337,
+    "z": 9002,
+    "height": 487,
+    "width": 1115,
+    "tabOrder": 9002
+  },
+  "visual": {
+    "visualType": "funnel",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_category"
+                    }
+                  },
+                  "Property": "product_category_name_english"
+                }
+              },
+              "queryRef": "dim_category.product_category_name_english",
+              "nativeQueryRef": "product_category_name_english",
+              "active": true,
+              "displayName": "product_category_name_english"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parametr OŚ WYMIARU"
+                    }
+                  },
+                  "Property": "Parametr OŚ WYMIARU"
+                }
+              },
+              "index": 0,
+              "length": 1
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "*Miary"
+                    }
+                  },
+                  "Property": "Top 5 Product Categories Revenue"
+                }
+              },
+              "queryRef": "*Miary.Top 5 Product Categories Revenue",
+              "nativeQueryRef": "Top 5 Product Categories by Revenue",
+              "displayName": "Top 5 Product Categories by Revenue"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parametr Top"
+                    }
+                  },
+                  "Property": "Parametr Top"
+                }
+              },
+              "index": 0,
+              "length": 1
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "*Miary"
+                  }
+                },
+                "Property": "Top 5 Product Categories Revenue"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

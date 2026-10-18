@@ -18,6 +18,31 @@ table dim_orders
 
 		annotation SummarizationSetBy = Automatic
 
+	column is_delivered
+		formatString: 0
+		lineageTag: 78068d41-72c2-43d6-a203-d6b90045c9a4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [is_delivered]
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		lineageTag: 1228800a-6a9d-4300-8813-3603433e52cf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [status]
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		lineageTag: 0e937553-bd3b-43a3-8417-3dc86be4dacf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [customer_id]
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_orders = calculated
 		mode: import
 		source =
@@ -26,7 +51,13 @@ table dim_orders
 				DISTINCT(
 				    UNION(SELECTCOLUMNS('fct_orders',"order_id",fct_orders[order_id]),SELECTCOLUMNS('fct_items',"order_id",fct_items[order_id]))),
 				    "order_purchase_timestamp",
-				    LOOKUPVALUE(fct_orders[order_purchase_timestamp],fct_orders[order_id],[order_id]))
+				    LOOKUPVALUE(fct_orders[order_purchase_timestamp],fct_orders[order_id],[order_id]),
+				    "is_delivered",
+				    LOOKUPVALUE(fct_orders[is_delivered],fct_orders[order_id],[order_id]),
+				    "status",
+				    LOOKUPVALUE(fct_orders[order_status],fct_orders[order_id],[order_id]),
+				    "customer_id",
+				    LOOKUPVALUE(fct_orders[customer_id],fct_orders[order_id],[order_id]))
 
 	annotation PBI_Id = 903280d11c274efeb08a7e2da8bb3650
 

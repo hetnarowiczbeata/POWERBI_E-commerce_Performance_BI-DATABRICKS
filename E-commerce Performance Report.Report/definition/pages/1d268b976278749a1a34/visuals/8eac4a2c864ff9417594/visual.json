@@ -4,10 +4,10 @@
   "position": {
     "x": 42.5,
     "y": 752.5,
-    "z": 2007,
+    "z": 7000,
     "height": 140,
     "width": 280,
-    "tabOrder": 2007
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -133,7 +133,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Rok-Miesiąc"
+                            "0": "Year-Month"
                           }
                         ]
                       }

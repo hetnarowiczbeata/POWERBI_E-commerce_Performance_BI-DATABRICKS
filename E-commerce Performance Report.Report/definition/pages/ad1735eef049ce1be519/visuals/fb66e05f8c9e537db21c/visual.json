@@ -4,10 +4,10 @@
   "position": {
     "x": 1556.6666666666667,
     "y": 820,
-    "z": 8001,
+    "z": 9000,
     "height": 553.33333333333337,
     "width": 1110,
-    "tabOrder": 8001
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "hundredPercentStackedBarChart",
@@ -102,62 +102,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "88df77a971567220d4aa",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "*Miary"
-              }
-            },
-            "Property": "Avg Approval Time"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b065c9a054b3d7ff13c6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "*Miary"
-              }
-            },
-            "Property": "Avg Carrier Time"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "37f00bc5b25d062f6753",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "*Miary"
-              }
-            },
-            "Property": "Avg Preparation Time"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "af0f285966b8583aab75",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Etap dostawy"
-              }
-            },
-            "Property": "Kategoria"
-          }
-        },
-        "type": "Categorical"
-      },
       {
         "name": "e2e72c16bfb20aec4144",
         "field": {

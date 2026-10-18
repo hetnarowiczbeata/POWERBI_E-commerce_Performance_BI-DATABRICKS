@@ -1,0 +1,67 @@
+table 'Parametr Seller'
+	lineageTag: aa22526b-5ece-4ab4-9039-479f21bc2ce7
+
+	column 'Parametr Seller'
+		lineageTag: 41d03c1a-f8fd-42ae-9abf-9227774bb34c
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Parametr Seller'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Parametr Seller'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Parametr Seller'
+		isHidden
+		lineageTag: d73f9de9-8107-41f7-8db8-4e2c7c927315
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Parametr Seller'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Parametr Seller'
+		isHidden
+		formatString: 0
+		lineageTag: 5c44fbd7-c68f-4717-a45f-a5cbd31edda0
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		lineageTag: 3df430b6-cd82-4f55-bf09-1028b0580ed5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametr Seller' = calculated
+		mode: import
+		source =
+				{
+				    ("Śr. wartość zamówienia", NAMEOF('*Miary'[Avg Order Value]), 0, "PL"),
+				    ("Śr. przychód na sprzedawcę", NAMEOF('*Miary'[Avg Revenue per Seller]), 1, "PL"),
+				    ("Liczba produktów", NAMEOF('*Miary'[Items]), 2, "PL"),
+				    ("Łączny przychód", NAMEOF('*Miary'[Total Revenue]), 3, "PL"),
+				    ("Liczba zamówień", NAMEOF('*Miary'[Orders]), 4, "PL"),
+				    ("Liczba sprzedawców", NAMEOF('*Miary'[Total Sellers]), 5, "PL"),
+				
+				    ("Avg Order Value", NAMEOF('*Miary'[Avg Order Value]), 0, "EN"),
+				    ("Avg Revenue per Seller", NAMEOF('*Miary'[Avg Revenue per Seller]), 1, "EN"),
+				    ("Items", NAMEOF('*Miary'[Items]), 2, "EN"),
+				    ("Total Revenue", NAMEOF('*Miary'[Total Revenue]), 3, "EN"),
+				    ("Orders", NAMEOF('*Miary'[Orders]), 4, "EN"),
+				    ("Total Sellers", NAMEOF('*Miary'[Total Sellers]), 5, "EN")
+				}
+
+	annotation PBI_Id = 1c8280d4888f47cc887797da9a81c758
+

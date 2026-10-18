@@ -1,0 +1,71 @@
+table 'Parametr Top'
+	lineageTag: f596726d-136d-4e40-b1d4-f0f9022af63c
+
+	column 'Parametr Top'
+		lineageTag: 84541446-fb2b-4105-8ebb-822f50a65353
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Parametr Top sellers'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Parametr Top sellers'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Parametr Top sellers'
+		isHidden
+		lineageTag: 0e2145df-9c28-4f8d-a75d-940a37a8fa80
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Parametr Top sellers'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Parametr Top sellers'
+		isHidden
+		formatString: 0
+		lineageTag: 6637eb7f-96e2-4ff0-bb6a-63e973c9b9ed
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		lineageTag: 4919ba35-662b-45ba-9ffb-b860f6c95550
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value5
+		lineageTag: e13cbe2b-e8c2-4935-9eba-28314deff639
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value5]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametr Top' = calculated
+		mode: import
+		source =
+				{
+				    ("5 liderów sprzedaży", NAMEOF('*Miary'[Top 5 Sellers Revenue]), 0, "PL", "Sprzedawcy"),
+				    ("5 sprzedawców z najniższym przychodem", NAMEOF('*Miary'[Bottom 5 Sellers Revenue]), 1, "PL", "Sprzedawcy"),
+				    ("5 kategorii z najwyższym przychodem", NAMEOF('*Miary'[Top 5 Product Categories Revenue]), 2, "PL", "Produkty"),
+				    ("5 kategorii z najniższym przychodem", NAMEOF('*Miary'[Bottom 5 Product Categories Revenue]), 3, "PL", "Produkty"),
+				
+				    ("Top 5 Revenue Leaders", NAMEOF('*Miary'[Top 5 Sellers Revenue]), 0, "EN", "Sellers"),
+				    ("Bottom 5 by Revenue", NAMEOF('*Miary'[Bottom 5 Sellers Revenue]), 1, "EN", "Sellers"),
+				    ("Top 5 Product Categories by Revenue", NAMEOF('*Miary'[Top 5 Product Categories Revenue]), 2, "EN", "Products"),
+				    ("Bottom 5 Product Categories by Revenue", NAMEOF('*Miary'[Bottom 5 Product Categories Revenue]), 3, "EN", "Products")
+				}
+
+	annotation PBI_Id = 8149b68b7e7f43298850e7c558ee58fe
+

@@ -4,10 +4,10 @@
   "position": {
     "x": 43.333333333333336,
     "y": 310,
-    "z": 2003,
+    "z": 3000,
     "height": 140,
     "width": 280,
-    "tabOrder": 2003
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fct_orders"
+                      "Entity": "Delivery Status"
                     }
                   },
                   "Property": "is_delivered"
                 }
               },
-              "queryRef": "fct_orders.is_delivered",
+              "queryRef": "Delivery Status.is_delivered",
               "nativeQueryRef": "is_delivered",
               "active": true
             }

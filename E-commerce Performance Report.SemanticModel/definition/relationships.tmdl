@@ -1,11 +1,3 @@
-relationship AutoDetected_82ee960a-32c1-4958-b13e-0203bd565478
-	fromColumn: fct_items.product_id
-	toColumn: dim_products.product_id
-
-relationship AutoDetected_56cc5385-45ac-44dd-b6c7-4d24bf24ee54
-	fromColumn: fct_items.seller_id
-	toColumn: dim_sellers.seller_id
-
 relationship AutoDetected_5099723c-8c92-46d8-8c4b-6c49ca547750
 	fromColumn: dim_products.product_category_name
 	toColumn: dim_category.product_category_name
@@ -30,10 +22,6 @@ relationship 3c638f9a-f7d7-40da-b85c-785666c2f8b2
 	fromColumn: fct_orders.order_estimated_delivery_date
 	toColumn: LocalDateTable_38521938-1252-4b71-ba0e-1fdd53aeff3f.Date
 
-relationship b30385f5-2015-3fb8-d539-f8d0e8991300
-	fromColumn: fct_payments.order_id
-	toColumn: fct_orders.order_id
-
 relationship c13843cb-2d78-95f8-958e-f4963bcb873d
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
@@ -48,10 +36,6 @@ relationship ad26ea3b-22e0-9a8a-ee11-76ac1cdefe96
 	fromColumn: 'Parametr Logistyka'.Value4
 	toColumn: JĘZYK.'Kolumna 1'
 
-relationship AutoDetected_0f4873ab-e39f-4a82-a43b-dc3a60c2895d
-	fromColumn: fct_orders.order_status
-	toColumn: dim_status.order_status
-
 relationship b54d75fe-2c6e-bbbf-1a2c-74947596daa3
 	fromColumn: 'Parametr Delivery performance'.Value4
 	toColumn: JĘZYK.'Kolumna 1'
@@ -59,18 +43,6 @@ relationship b54d75fe-2c6e-bbbf-1a2c-74947596daa3
 relationship 89daef8b-06f5-8f8a-7f74-fe4a8a8ea767
 	fromColumn: 'Etap dostawy'.PL/EN
 	toColumn: JĘZYK.'Kolumna 1'
-
-relationship 71e8d94e-78a0-f9b5-d1f1-38fb36061052
-	fromColumn: 'Parametr Fracht'.Value4
-	toColumn: JĘZYK.'Kolumna 1'
-
-relationship db2a6059-6daf-5087-caea-37c0f2f307dd
-	fromColumn: fct_orders.customer_id
-	toColumn: dim_customers.customer_id
-
-relationship 99a83aa4-e200-48ec-ba80-c112367b65ad
-	fromColumn: fct_items.order_id
-	toColumn: dim_orders.order_id
 
 relationship 2600d66c-fde6-4707-9527-cb13c1fc1e8b
 	joinOnDateBehavior: datePartOnly
@@ -82,10 +54,6 @@ relationship c32489ed-41e3-4edd-977d-ceccad460020
 	fromColumn: fct_orders.order_purchase_timestamp
 	toColumn: LocalDateTable_1b308d07-6d88-4e68-a789-f55349fa1c0d.Date
 
-relationship 1826c1dd-872a-9fb3-207e-3e37c7b90733
-	fromColumn: dim_orders.order_purchase_timestamp
-	toColumn: dim_calendar.Date
-
 relationship bb1c15ce-d31e-54f1-f181-9618552d40ab
 	fromColumn: dim_customers.customer_zip_code_prefix
 	toColumn: dim_geolocation.geolocation_zip_code_prefix
@@ -94,6 +62,10 @@ relationship 1779dc76-df57-d48d-3b2c-6f9133a73856
 	fromColumn: dim_sellers.seller_zip_code_prefix
 	toColumn: dim_geolocation_sellers.geolocation_zip_code_prefix
 
+relationship 99a83aa4-e200-48ec-ba80-c112367b65ad
+	fromColumn: fct_items.order_id
+	toColumn: dim_orders.order_id
+
 relationship 68156ebd-5d8c-f993-c062-96c58749c3f6
 	fromColumn: fct_orders.order_id
 	toColumn: dim_orders.order_id
@@ -101,4 +73,56 @@ relationship 68156ebd-5d8c-f993-c062-96c58749c3f6
 relationship be56b77f-e6e2-a135-9561-cda498eef3d0
 	fromColumn: fct_feedback.order_id
 	toColumn: dim_orders.order_id
+
+relationship 01791b49-a5ce-e35b-6d92-816bb258b86f
+	fromColumn: fct_payments.order_id
+	toColumn: dim_orders.order_id
+
+relationship 1826c1dd-872a-9fb3-207e-3e37c7b90733
+	fromColumn: dim_orders.order_purchase_timestamp
+	toColumn: dim_calendar.Date
+
+relationship de1529d5-2ba3-12d8-96d5-569dff6e417f
+	fromColumn: dim_orders.is_delivered
+	toColumn: 'Delivery Status'.is_delivered
+
+relationship 46b0f1e1-66aa-6e33-aa76-18fd8acd5820
+	fromColumn: dim_orders.status
+	toColumn: dim_status.order_status
+
+relationship 3e568787-c437-656e-7dfa-3ad6a7126c44
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dim_customers.customer_id
+	toColumn: dim_orders.customer_id
+
+relationship ac947c58-a745-bf8b-a12a-76e1b0219bb8
+	fromColumn: fct_items.seller_id
+	toColumn: dim_sellers.seller_id
+
+relationship bb044d28-a553-9843-60d9-78a92117f1e4
+	fromColumn: fct_items.product_id
+	toColumn: dim_products.product_id
+
+relationship e35105d2-8887-511e-b13b-cffa8af72535
+	fromColumn: 'Parametr Seller'.Value4
+	toColumn: JĘZYK.'Kolumna 1'
+
+relationship 71e8d94e-78a0-f9b5-d1f1-38fb36061052
+	fromColumn: 'Parametr Fracht'.Value4
+	toColumn: JĘZYK.'Kolumna 1'
+
+relationship 20493aaa-b9d2-dc32-11d1-ad5a69f2d545
+	fromColumn: 'Kategorie PL_EN'.PL/EN
+	toColumn: JĘZYK.'Kolumna 1'
+
+relationship 13a7c4e6-40e1-9d63-7fe2-fcb63053b1d3
+	fromColumn: 'Parametr Top'.Value5
+	toColumn: 'Kategorie PL_EN'.Kategoria
+
+relationship 41b40f89-dade-0400-ecaa-1a205907584b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Parametr OŚ WYMIARU'.Value4
+	toColumn: 'Kategorie PL_EN'.Kategoria
 

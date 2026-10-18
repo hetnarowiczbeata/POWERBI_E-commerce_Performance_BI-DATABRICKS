@@ -27,9 +27,9 @@
                 }
               },
               "queryRef": "dim_calendar.Year_month",
-              "nativeQueryRef": "Rok-Miesiąc",
+              "nativeQueryRef": "Year-Month",
               "active": true,
-              "displayName": "Rok-Miesiąc"
+              "displayName": "Year-Month"
             }
           ],
           "fieldParameters": [
@@ -60,12 +60,12 @@
                       "Entity": "*Miary"
                     }
                   },
-                  "Property": "Late %"
+                  "Property": "Avg Preparation Time"
                 }
               },
-              "queryRef": "*Miary.Late %",
-              "nativeQueryRef": "Opóźnienia [%]",
-              "displayName": "Opóźnienia [%]"
+              "queryRef": "*Miary.Avg Preparation Time",
+              "nativeQueryRef": "Avg Preparation Time",
+              "displayName": "Avg Preparation Time"
             }
           ],
           "fieldParameters": [

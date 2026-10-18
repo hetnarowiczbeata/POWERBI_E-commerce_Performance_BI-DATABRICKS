@@ -41,12 +41,12 @@
                       "Entity": "dim_measures"
                     }
                   },
-                  "Property": "Nazwa miary PL"
+                  "Property": "Nazwa miary EN"
                 }
               },
-              "queryRef": "dim_measures.Nazwa miary PL",
-              "nativeQueryRef": "Nazwa miary PL",
-              "displayName": "Nazwa miary PL"
+              "queryRef": "dim_measures.Nazwa miary EN",
+              "nativeQueryRef": "Nazwa miary EN",
+              "displayName": "Nazwa miary EN"
             }
           ],
           "fieldParameters": [
@@ -78,7 +78,7 @@
                     "Entity": "dim_measures"
                   }
                 },
-                "Property": "Nazwa miary PL"
+                "Property": "Nazwa miary EN"
               }
             },
             "direction": "Ascending"
@@ -1114,23 +1114,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4d5c66e0de723246082e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "*Miary"
-              }
-            },
-            "Property": "Wszystkie miary"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

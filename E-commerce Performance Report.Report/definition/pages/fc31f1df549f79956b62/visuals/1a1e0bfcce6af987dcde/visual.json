@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''*Miary''[On-Time]'"
+                                "Value": "'''*Miary''[On-Time %]'"
                               }
                             }
                           ]
@@ -109,7 +109,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''*Miary''[On-Time]'"
+                                      "Value": "'''*Miary''[On-Time %]'"
                                     }
                                   }
                                 ]
@@ -133,7 +133,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Dostarczone na czas"
+                            "0": "On-Time %"
                           }
                         ]
                       }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "0853a5b8803bd4d7b299",
   "position": {
-    "x": 432.5,
-    "y": 75,
+    "x": 473.33333333333337,
+    "y": 86.666666666666671,
     "z": 0,
-    "height": 262.5,
-    "width": 2200,
+    "height": 220,
+    "width": 2160,
     "tabOrder": 0
   },
   "visual": {
@@ -41,12 +41,12 @@
                       "Entity": "dim_measures"
                     }
                   },
-                  "Property": "Nazwa miary PL"
+                  "Property": "Nazwa miary EN"
                 }
               },
-              "queryRef": "dim_measures.Nazwa miary PL",
-              "nativeQueryRef": "Nazwa miary PL",
-              "displayName": "Nazwa miary PL"
+              "queryRef": "dim_measures.Nazwa miary EN",
+              "nativeQueryRef": "Nazwa miary EN",
+              "displayName": "Nazwa miary EN"
             }
           ],
           "fieldParameters": [
@@ -78,7 +78,7 @@
                     "Entity": "dim_measures"
                   }
                 },
-                "Property": "Nazwa miary PL"
+                "Property": "Nazwa miary EN"
               }
             },
             "direction": "Ascending"
@@ -128,7 +128,7 @@
             "maxSmallMultiples": {
               "expr": {
                 "Literal": {
-                  "Value": "5L"
+                  "Value": "4L"
                 }
               }
             },
@@ -1107,91 +1107,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "52432741065f8ddccc64",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_measures"
-              }
-            },
-            "Property": "Nr miary"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "dim_measures",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Nr miary"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "9L"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "16L"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "18L"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "19L"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "8L"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
-      }
-    ]
   }
 }

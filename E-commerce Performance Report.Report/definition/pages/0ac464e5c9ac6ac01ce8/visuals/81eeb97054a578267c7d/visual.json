@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "5a6531eb6fc3c62f3313",
+  "name": "81eeb97054a578267c7d",
   "position": {
-    "x": 0,
-    "y": 535.333251953125,
-    "z": 1000,
-    "height": 140,
-    "width": 280,
-    "tabOrder": 1000
+    "x": 2140,
+    "y": 790,
+    "z": 9003,
+    "height": 203.33333333333334,
+    "width": 560,
+    "tabOrder": 9003
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_calendar"
+                      "Entity": "Kategorie PL_EN"
                     }
                   },
-                  "Property": "Year"
+                  "Property": "Kategoria"
                 }
               },
-              "queryRef": "dim_calendar.Year",
-              "nativeQueryRef": "Year",
+              "queryRef": "Kategorie PL_EN.Kategoria",
+              "nativeQueryRef": "Kategoria",
               "active": true
             }
           ]
@@ -41,7 +41,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "'Basic'"
                 }
               }
             }
@@ -56,8 +56,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "d",
-                    "Entity": "dim_calendar",
+                    "Name": "k",
+                    "Entity": "Kategorie PL_EN",
                     "Type": 0
                   }
                 ],
@@ -70,10 +70,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "d"
+                                  "Source": "k"
                                 }
                               },
-                              "Property": "Year"
+                              "Property": "Kategoria"
                             }
                           }
                         ],
@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "2017L"
+                                "Value": "'Products'"
                               }
                             }
                           ]
@@ -94,21 +94,26 @@
             }
           }
         }
-      ],
-      "selection": [
-        {
-          "properties": {
-            "strictSingleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "174bb77c8cd683f20bdb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Kategorie PL_EN"
+              }
+            },
+            "Property": "Kategoria"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

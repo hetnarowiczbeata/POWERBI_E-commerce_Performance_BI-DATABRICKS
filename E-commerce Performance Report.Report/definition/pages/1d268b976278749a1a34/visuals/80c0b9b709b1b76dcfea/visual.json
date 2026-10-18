@@ -2,35 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "80c0b9b709b1b76dcfea",
   "position": {
-    "x": 1953.3333333333335,
-    "y": 343.33333333333337,
-    "z": 2008,
-    "height": 956.66666666666674,
-    "width": 680,
-    "tabOrder": 2008
+    "x": 1760,
+    "y": 850,
+    "z": 8000,
+    "height": 513.33333333333337,
+    "width": 866.66666666666674,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "scatterChart",
     "query": {
       "queryState": {
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "*Miary"
-                    }
-                  },
-                  "Property": "Total Orders"
-                }
-              },
-              "queryRef": "*Miary.Total Orders",
-              "nativeQueryRef": "Total Orders"
-            }
-          ]
-        },
         "X": {
           "projections": [
             {
@@ -71,5 +53,57 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0cf2856c9aeb65b4ab6c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_orders"
+              }
+            },
+            "Property": "delivery_time_days"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "fct_orders",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 3,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "f"
+                        }
+                      },
+                      "Property": "delivery_time_days"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "50L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

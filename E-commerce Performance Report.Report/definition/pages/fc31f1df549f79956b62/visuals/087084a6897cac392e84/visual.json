@@ -41,12 +41,12 @@
                       "Entity": "dim_measures"
                     }
                   },
-                  "Property": "Nazwa miary PL"
+                  "Property": "Nazwa miary EN"
                 }
               },
-              "queryRef": "dim_measures.Nazwa miary PL",
-              "nativeQueryRef": "Nazwa miary PL",
-              "displayName": "Nazwa miary PL"
+              "queryRef": "dim_measures.Nazwa miary EN",
+              "nativeQueryRef": "Nazwa miary EN",
+              "displayName": "Nazwa miary EN"
             }
           ],
           "fieldParameters": [
@@ -78,7 +78,7 @@
                     "Entity": "dim_measures"
                   }
                 },
-                "Property": "Nazwa miary PL"
+                "Property": "Nazwa miary EN"
               }
             },
             "direction": "Ascending"
@@ -1147,34 +1147,6 @@
         },
         "type": "Categorical",
         "howCreated": "User"
-      },
-      {
-        "name": "11d15e76e996638f7539",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "*Miary"
-              }
-            },
-            "Property": "Wszystkie miary"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6449456d54700c323743",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_measures"
-              }
-            },
-            "Property": "Nazwa miary PL"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

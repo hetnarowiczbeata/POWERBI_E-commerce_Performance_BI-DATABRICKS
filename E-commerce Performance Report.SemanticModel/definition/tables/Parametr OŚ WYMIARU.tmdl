@@ -1,0 +1,58 @@
+table 'Parametr OŚ WYMIARU'
+	lineageTag: 97fe9468-f1a5-4e94-9a48-cb96cb483e1d
+
+	column 'Parametr OŚ WYMIARU'
+		lineageTag: f4456f57-8bd1-41e9-9948-534dfee036d9
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Kolejność Parametr OŚ WYMIARU'
+
+		relatedColumnDetails
+			groupByColumn: 'Pola: Parametr OŚ WYMIARU'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pola: Parametr OŚ WYMIARU'
+		isHidden
+		lineageTag: 2c28a5b9-d051-4f5b-93dc-eeb8fd2fbb1e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Kolejność Parametr OŚ WYMIARU'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kolejność Parametr OŚ WYMIARU'
+		isHidden
+		formatString: 0
+		lineageTag: 09565327-2a9f-48b2-8476-1224205709c5
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		lineageTag: 8db799b9-d461-4fd5-9395-688030e0d91f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametr OŚ WYMIARU' = calculated
+		mode: import
+		source =
+				{
+				    ("seller_id", NAMEOF('dim_sellers'[seller_id]), 0, "Sprzedawcy"),
+				    ("product_category_name_english", NAMEOF('dim_category'[product_category_name_english]), 1, "Produkty"),
+				    ("seller_id", NAMEOF('dim_sellers'[seller_id]), 2, "Sellers"),
+				    ("product_category_name_english", NAMEOF('dim_category'[product_category_name_english]), 3, "Products")
+				}
+
+	annotation PBI_Id = 9833c75016674fac82a2c81c7e897de8
+

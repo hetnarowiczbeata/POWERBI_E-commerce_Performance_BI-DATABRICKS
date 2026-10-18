@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''*Miary''[Late %]'"
+                                "Value": "'''*Miary''[Avg Preparation Time]'"
                               }
                             }
                           ]
@@ -109,7 +109,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''*Miary''[Late %]'"
+                                      "Value": "'''*Miary''[Avg Preparation Time]'"
                                     }
                                   }
                                 ]
@@ -133,7 +133,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Opóźnienia [%]"
+                            "0": "Avg Preparation Time"
                           }
                         ]
                       }

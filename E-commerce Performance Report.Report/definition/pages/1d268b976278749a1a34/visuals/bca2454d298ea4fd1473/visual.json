@@ -4,10 +4,10 @@
   "position": {
     "x": 45,
     "y": 520,
-    "z": 2005,
+    "z": 5000,
     "height": 140,
     "width": 280,
-    "tabOrder": 2005
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -133,7 +133,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Średni koszt dostawy"
+                            "0": "Avg Freight"
                           }
                         ]
                       }

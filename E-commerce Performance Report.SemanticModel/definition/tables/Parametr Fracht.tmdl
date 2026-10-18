@@ -49,19 +49,16 @@ table 'Parametr Fracht'
 		source =
 				{
 				    ("Średni koszt dostawy", NAMEOF('*Miary'[Avg Freight]), 0, "PL"),
-				    ("Avg Freight", NAMEOF('*Miary'[Avg Freight]), 0, "ENG"),
-				
-				    ("Średni koszt dostawy na produkt", NAMEOF('*Miary'[Avg Freight / Item]), 1, "PL"),
-				    ("Avg Freight / Item", NAMEOF('*Miary'[Avg Freight / Item]), 1, "ENG"),
+				    ("Avg Freight", NAMEOF('*Miary'[Avg Freight]), 0, "EN"),
 				
 				    ("Średni koszt dostawy na zamówienie", NAMEOF('*Miary'[Avg Freight / Order]), 2, "PL"),
-				    ("Avg Freight / Order", NAMEOF('*Miary'[Avg Freight / Order]), 2, "ENG"),
+				    ("Avg Freight / Order", NAMEOF('*Miary'[Avg Freight / Order]), 2, "EN"),
 				
 				    ("Koszt dostawy / Wartość produktów (%)", NAMEOF('*Miary'[Freight / Product Value %]), 3, "PL"),
-				    ("Freight / Product Value %", NAMEOF('*Miary'[Freight / Product Value %]), 3, "ENG"),
+				    ("Freight / Product Value %", NAMEOF('*Miary'[Freight / Product Value %]), 3, "EN"),
 				
 				    ("Łączny koszt dostawy", NAMEOF('*Miary'[Total Freight]), 4, "PL"),
-				    ("Total Freight", NAMEOF('*Miary'[Total Freight]), 4, "ENG")
+				    ("Total Freight", NAMEOF('*Miary'[Total Freight]), 4, "EN")
 				}
 
 	annotation PBI_Id = a0b20b8d16b6404590d4c984c16033f7
